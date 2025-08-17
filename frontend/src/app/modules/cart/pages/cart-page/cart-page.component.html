@@ -1,0 +1,59 @@
+<app-navbar></app-navbar>
+<div class="cart-page-container">
+  <div class="cart-content">
+    <!-- Left Column - Cart Items -->
+    <div class="cart-items-column">
+      <div class="cart-header">
+        <h2>My Cart ({{getTotalItems()}} items)</h2>
+        <div class="price-header">Price</div>
+      </div>
+
+      @if (cartService.cartItems.length > 0) {
+        <div class="cart-items-list">
+          @for (item of cartService.cartItems; track item.id) {
+            <div class="cart-item-card">
+              <img [src]="'assets/images/' + item.image" [alt]="item.name" class="product-image">
+              
+              <div class="product-details">
+                <h3 class="product-name">{{item.name}}</h3>
+                <div class="stock-status">In Stock</div>
+                <div class="delivery">Delivery by {{item.deliveryDate || 'Tomorrow'}}</div>
+                
+                <div class="quantity-controls">
+                  <button class="quantity-btn" (click)="handleQuantityUpdate({id: item.id, change: -1})">−</button>
+                  <span class="quantity">{{item.quantity}}</span>
+                  <button class="quantity-btn" (click)="handleQuantityUpdate({id: item.id, change: 1})">+</button>
+                  <span class="divider">|</span>
+                  <button class="action-link" (click)="handleRemove(item.id)">Remove</button>
+                </div>
+              </div>
+              
+              <div class="price-section">
+                <div class="current-price">₹{{item.price | number}}</div>
+                @if (item.originalPrice) {
+                  <div class="original-price">₹{{item.originalPrice | number}}</div>
+                }
+              </div>
+            </div>
+          }
+        </div>
+      } @else {
+        <div class="empty-cart">
+          <img src="../../../../../assets/cart/empty-cart.png" alt="Empty cart">
+          <h3>Your cart is empty</h3>
+          <button (click)="navigateToHome()" class="continue-shopping-btn">
+            Continue Shopping
+          </button>
+        </div>
+      }
+    </div>
+
+    <!-- Right Column - Order Summary -->
+    @if (cartService.cartItems.length > 0) {
+      <div class="order-summary-column">
+        <app-order-cart-summary></app-order-cart-summary>
+      </div>
+    }
+  </div>
+</div>
+<app-footer></app-footer>

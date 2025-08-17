@@ -1,0 +1,49 @@
+<section id="home-wrapper" class="home-layout">
+  <app-home-header></app-home-header>
+
+  <!--<app-scrollable-menu-bar></app-scrollable-menu-bar>
+
+  <div class="main-content">
+    <aside class="sidebar">
+      <app-side-bar></app-side-bar>
+    </aside>
+
+    Reserved space for other main content
+    <section class="content-area">
+       You can add content here later
+    </section>
+  </div>-->
+
+  <div class="product-detail container">
+    <div *ngIf="product" class="product-card">
+      <div class="product-main">
+        <div class="product-image">
+          <img [src]="product.image" alt="{{ product.name }}" class="product-image"/>
+        </div>
+        
+        <div class="product-info">
+          <h2>{{ product.name }}</h2>
+          <p><strong>Brand:</strong> {{ product.brand }}</p>
+          <p><strong>Category:</strong> {{ product.category }}</p>
+          <p><strong>Price:</strong> ₹{{ product.price }}</p>
+          <p><strong>Description:</strong> {{ product.description }}</p>
+          <!-- Action Buttons -->
+          <div class="action-buttons">
+            <button class="btn add-cart" (click)="addToCart()">Buy Now</button>
+            <button class="btn buy-now" (click)="wishlist()">Wishlist</button>
+          </div>
+        </div>
+        
+      </div>
+
+      <app-review [reviews]="product.reviews"></app-review>
+    </div>
+
+    <div *ngIf="!product">
+      <p>Product not found.</p>
+    </div>
+  </div>
+
+  <app-footer></app-footer>
+  
+</section>

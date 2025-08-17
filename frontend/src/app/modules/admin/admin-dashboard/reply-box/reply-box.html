@@ -1,0 +1,32 @@
+<!-- reply-box.component.html -->
+<div class="reply-container" >
+  <div class="reply-header">
+    <div class="header-content">
+      <i class="fas fa-reply"></i>
+      <h3>Reply to </h3>
+    </div>
+    <button class="close-btn" (click)="onClose()" aria-label="Close reply box">
+      <i class="fas fa-times"></i>
+    </button>
+  </div>
+  
+  <div class="reply-body">
+    <form (ngSubmit)="onSubmit()">
+      <textarea 
+        name="reply" 
+        [(ngModel)]="reply" 
+        placeholder="Type your reply here..." 
+        aria-label="Reply message"
+      ></textarea>
+      
+      <div class="action-buttons">
+        <button type="button" class="cancel-btn" (click)="onClose()">
+          Cancel
+        </button>
+        <button type="submit" class="send-btn">
+          <i class="fas fa-paper-plane"></i> Send Reply
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

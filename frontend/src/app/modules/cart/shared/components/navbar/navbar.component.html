@@ -1,0 +1,53 @@
+<header class="navbar">
+  <!-- <button class="menu-btn" aria-label="Menu">
+    <svg class="menu-icon" viewBox="0 0 24 24">
+      <path fill="currentColor" d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+    </svg>
+  </button> -->
+
+  <div class="logo-section">
+      <a routerLink="/home" class="logo-link">
+        <img src="../../../../../../assets/cart/logo.png" alt="Company Logo" class="logo">
+      </a>
+  </div>
+  
+  <div class="search-container">
+    <input type="text" placeholder="Search products..." class="search-input">
+    <button class="search-btn" aria-label="Search">
+      <svg class="search-icon" viewBox="0 0 24 24">
+        <path fill="currentColor" d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 001.48-5.34c-.47-2.78-2.79-5-5.59-5.34a6.505 6.505 0 00-7.27 7.27c.34 2.8 2.56 5.12 5.34 5.59a6.5 6.5 0 005.34-1.48l.27.28v.79l4.25 4.25c.41.41 1.08.41 1.49 0 .41-.41.41-1.08 0-1.49L15.5 14zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+      </svg>
+    </button>
+  </div>
+
+  <nav class="nav-links">
+    <a routerLink="/profile" class="nav-link profile-link">
+      <svg class="nav-icon" viewBox="0 0 24 24">
+        <path fill="currentColor" d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+      </svg>
+      <span>Profile</span>
+    </a>
+    
+      <!--  using Font Awesome icons -->
+      <a routerLink="/wishlist" class="nav-link wishlist-link">
+      <i class="fas fa-heart nav-icon"></i><span>Wishlist</span> 
+      </a>
+      
+      <!-- <a routerLink="/checkout" class="nav-link checkout-link">
+      <i class="fas fa-box nav-icon"></i> Checkout
+      </a> -->
+
+    <a routerLink="/cart" class="nav-link cart-link">
+      <svg class="nav-icon" viewBox="0 0 24 24">
+        <path fill="currentColor" d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/>
+      </svg>
+      <span>Cart</span>
+    </a>
+    
+    
+    <a class="nav-link help-link" routerLink="/helpline"><i class="fa fa-circle-question">
+      </i><span>HELP</span>
+    </a>
+    
+  </nav>
+</header>

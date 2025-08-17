@@ -1,0 +1,264 @@
+/* === Global Reset === */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* === Navbar Container === */
+#navbar-container {
+  width: 100%;
+  background: linear-gradient(135deg, #d0e7ff, #98c9ff);
+  padding: 12px 30px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+}
+
+#main-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+#inner-nav {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+  width: 100%;
+}
+
+/* === Logo === */
+#nav-logo {
+  display: flex;
+  align-items: center;
+}
+
+#logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+#logo img {
+  height: 36px;
+  width: auto;
+  transition: transform 0.3s ease;
+}
+
+#logo:hover img {
+  transform: scale(1.08);
+}
+
+/* === Search Bar === */
+#nav-search {
+  flex-grow: 1;
+  max-width: 420px;
+  min-width: 200px;
+  padding: 0 15px;
+  z-index: 1;
+}
+
+#nav-search form {
+  display: flex;
+  width: 100%;
+}
+
+#search {
+  padding: 9px 16px;
+  border-radius: 25px 0 0 25px;
+  border: none;
+  outline: none;
+  width: 100%;
+  font-size: 14px;
+  background: rgba(255, 255, 255, 0.95);
+  color: #003366;
+  transition: all 0.3s ease;
+}
+
+#search:focus {
+  background: white;
+  box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.3);
+}
+
+#nav-search button {
+  padding: 0 14px;
+  border-radius: 0 25px 25px 0;
+  background: linear-gradient(to right, #0059b3, #3399ff);
+  border: none;
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#nav-search button:hover {
+  background: linear-gradient(to right, #3399ff, #0059b3);
+  transform: translateX(1px);
+}
+
+/* === Navigation Links === */
+#nav-links {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.nav-icon-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+  color: #003366;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  padding: 8px 12px;
+  border-radius: 5px;
+  text-decoration: none !important;
+}
+
+.nav-icon-link a {
+  color: #003366;
+  text-decoration: none !important;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-icon-link:hover {
+  background: rgba(30, 3, 126, 0.139);
+}
+
+.nav-icon-link:hover a,
+.nav-icon-link:hover i {
+  color: #034281;
+  text-decoration: none !important;
+}
+
+.nav-icon-link i {
+  font-size: 16px;
+  transition: color 0.3s ease;
+  text-decoration: none !important;
+}
+
+/* === Cart Count Badge === */
+.cart-icon {
+  position: relative;
+}
+
+.cart-count {
+  background: #ff4757;
+  color: white;
+  border-radius: 50%;
+  padding: 2px 6px;
+  font-size: 12px;
+  margin-left: 5px;
+}
+
+/* === Responsive Design === */
+@media (max-width: 992px) {
+  #inner-nav {
+    gap: 15px;
+  }
+
+  #nav-search {
+    order: 3;
+    flex: 1 1 100%;
+    max-width: 80%;
+    margin: 0 auto;
+    padding: 8px 0;
+  }
+
+  #search {
+    font-size: 13px;
+    padding: 8px 14px;
+  }
+
+  #nav-search button {
+    padding: 0 12px;
+    font-size: 13px;
+  }
+
+  #nav-links {
+    margin-left: auto;
+  }
+
+  .nav-icon-link {
+    font-size: 14px;
+    padding: 6px 10px;
+  }
+
+  .nav-icon-link i {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  #navbar-container {
+    padding: 10px 15px;
+  }
+
+  #nav-search {
+    max-width: 100%;
+    padding: 6px 0;
+  }
+
+  #search {
+    font-size: 13px;
+    padding: 7px 12px;
+  }
+
+  #nav-search button {
+    padding: 0 10px;
+    font-size: 13px;
+  }
+
+  .nav-icon-link a {
+    display: none;
+  }
+
+  .nav-icon-link {
+    font-size: 13px;
+  }
+
+  .nav-icon-link i {
+    font-size: 16px;
+  }
+
+  #logo-text {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  #search {
+    font-size: 12px;
+    padding: 6px 10px;
+  }
+
+  #nav-search button {
+    padding: 0 10px;
+    font-size: 12px;
+  }
+
+  .nav-icon-link {
+    padding: 4px 6px;
+    gap: 5px;
+    font-size: 12px;
+  }
+}

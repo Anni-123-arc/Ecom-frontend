@@ -1,0 +1,169 @@
+/* ===== Container ===== */
+.profile-container {
+  max-width: 900px;
+  margin: 60px auto 20px;
+  padding: 20px;
+  background: linear-gradient(145deg, #f5faff, #eaf1f8);
+  border-radius: 14px;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.06);
+  margin-top: 100px;
+}
+
+/* ===== Greeting ===== */
+.profile-greeting {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin-bottom: 40px;
+}
+.profile-greeting h2 {
+  font-family: 'Roboto Slab', serif; /* Example: a serif font */
+  font-weight: 700;
+  font-size: 3.8rem;
+  color: #041d41;
+  letter-spacing: 0.05em;
+  text-transform: capitalize; /* Capitalizes the first letter */
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+}
+
+
+/* Avatar Upload */
+.avatar-upload-label {
+  width: 90px;
+  height: 90px;
+}
+
+.avatar-img {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #1976d2;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.12);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.avatar-img:hover {
+  transform: scale(1.07);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+}
+
+.avatar-placeholder {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #1976d2, #42a5f5);
+  color: white;
+  font-size: 14px;
+  font-weight: 700;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+
+.upload-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(21, 101, 192, 0.75);
+  color: white;
+  font-size: 12px;
+  text-align: center;
+  padding: 3px 0;
+  border-radius: 0 0 50% 50%;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.avatar-upload-label:hover .upload-overlay {
+  opacity: 1;
+}
+
+.profile-greeting h2 {
+  font-size: 1.5rem;
+  color: #0d47a1;
+  font-weight: 700;
+}
+
+/* ===== Cards Grid ===== */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 14px;
+}
+
+.card {
+  padding: 12px;
+  background: #ffffff;
+  border-radius: 10px;
+  text-align: center;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  transition: all 0.25s ease;
+}
+
+.card h3 {
+  margin: 0;
+  font-size: 15px;
+  color: #1976d2;
+}
+
+.card p {
+  margin: 4px 0 0;
+  font-size: 12px;
+  color: #555;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.12);
+}
+
+/* ===== Action Buttons as Cards ===== */
+.card.action-btn {
+  font-weight: 600;
+  padding: 10px;
+  font-size: 14px;
+}
+
+.change-pass {
+  background: linear-gradient(90deg, #1976d2, #42a5f5);
+  color: white;
+  grid-column: 1;
+  margin-top: 20px;
+}
+
+.logout-btn {
+  background: linear-gradient(90deg, #e53935, #ef5350);
+  color: white;
+  grid-column: -2;
+  margin-top: 20px;
+}
+
+.change-pass:hover {
+  background: linear-gradient(90deg, #1565c0, #1e88e5);
+}
+
+.logout-btn:hover {
+  background: linear-gradient(90deg, #c62828, #e53935);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 600px) {
+  .cards-grid {
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  }
+  .card {
+    padding: 10px;
+    font-size: 13px;
+  }
+  .change-pass,
+  .logout-btn {
+    grid-column: span 1;
+  }
+}

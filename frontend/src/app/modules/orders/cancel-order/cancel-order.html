@@ -1,0 +1,41 @@
+<div class="cancel-page">
+  <h2>Cancel Order - {{ order?.id }}</h2>
+  <p>Select a reason for cancellation:</p>
+  <div class="cancel-reasons-box">
+    <label><input type="checkbox" [(ngModel)]="reasons.mistake" /> Item Mistakenly Placed</label>
+    <label><input type="checkbox" [(ngModel)]="reasons.lowerPrice" /> Price Issues</label>
+    <label><input type="checkbox" [(ngModel)]="reasons.shipping" /> Not Shipped yet</label>
+    <label><input type="checkbox" [(ngModel)]="reasons.notneeded" />Product no longer needed</label>
+    <label><input type="checkbox" [(ngModel)]="reasons.changedmind" /> Changed mind about purchase</label>
+    <label>
+      <input type="checkbox" [(ngModel)]="reasons.other" /> Other
+    </label>
+    <textarea *ngIf="reasons.other" [(ngModel)]="reasons.otherReason" placeholder="Enter reason"></textarea>
+  </div>
+
+  <!-- Image Upload Section -->
+  <div class="image-upload-section">
+    <label>Upload Images (optional):</label>
+    <div class="image-list">
+      <div class="image-preview" *ngFor="let img of imagePreviews; let i = index">
+        <img [src]="img" alt="Preview" />
+        <button class="delete-btn" (click)="removeImage(i)" title="Remove image">&times;</button>
+      </div>
+
+      <div class="image-square" (click)="fileInput.click()">
+        <span>+</span>
+        <p>Add Image</p>
+        <input
+          type="file"
+          #fileInput
+          accept="image/*"
+          multiple
+          (change)="onImagesSelected($event)"
+          hidden
+        />
+      </div>
+    </div>
+  </div>
+
+  <button (click)="confirmCancel()">Confirm Cancel</button>
+</div>

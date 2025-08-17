@@ -1,0 +1,107 @@
+:host {
+  display: block;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+
+#carousel-container {
+  position: relative;
+  width: 90%; /*  Decreased width from 100% to 90% */
+  max-width: 1200px; /* Optional: limits size on large screens */
+  height: 420px; /* Slightly smaller than 450px for proportion */
+  overflow: hidden;
+  margin: 10px auto; /*  Centers the container & adds top/bottom space */
+  border-radius: 16px; /*  Rounded corners */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /*  Soft shadow for depth */
+  background: #fff; /* Optional: background color to look clean */
+}
+
+
+.carousel-slides {
+  width: 100%;
+  height: 100%;
+}
+
+.carousel-slides img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Navigation Arrows */
+.prev,
+.next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.3);
+  color: white;
+  font-size: 30px;
+  padding: 12px;
+  cursor: pointer;
+  user-select: none;
+  z-index: 1;
+  transition: background-color 0.3s;
+}
+
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.prev {
+  left: 10px;
+}
+.next {
+  right: 10px;
+}
+
+/* Indicator Dots */
+#indicator-group {
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+}
+
+.indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.indicator.active,
+.indicator:hover {
+  background-color: #0059b3; /* Blue shade */
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  #carousel-container {
+    height: 300px;
+  }
+
+  .prev,
+  .next {
+    font-size: 24px;
+    padding: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  #carousel-container {
+    height: 220px;
+  }
+
+  .indicator {
+    width: 10px;
+    height: 10px;
+  }
+}

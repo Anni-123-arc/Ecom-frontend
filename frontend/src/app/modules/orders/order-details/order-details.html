@@ -1,0 +1,110 @@
+<app-home-header></app-home-header>
+<div class="order-details-container">
+  <h2 class="page-title">Order Details</h2>
+
+  <div class="order-details-wrapper">
+    <!-- Left Column: Order Details + Delivery Info -->
+    <div class="left-column">
+
+      <!-- Order Card -->
+      <div class="product-details">
+        <div class="product-info">
+          <h4>Product Name: {{ order.productName }}</h4>
+          <p>Product Price: ₹{{ order.price }}</p>
+          <p>Seller Brand: {{ order.seller }}</p>
+
+          <!-- Buttons -->
+          <div class="action-buttons">
+            <button class="track-btn" (click)="TrackOrder()">Track Order</button>
+            <button class="rating-btn" (click)="openRatingModal()">★ Rate this Product</button>
+          </div>
+        </div>
+
+        <div class="product-image-box">
+          <img [src]="order.imageUrl" alt="Product" />
+        </div>
+      </div>
+
+      <!-- Delivery Details Card -->
+      <div class="delivery-details-card">
+        <h4>Delivery Details</h4>
+        <p><strong>Recipient:</strong> {{ order.recipientName }}</p>
+        <p><strong>Address:</strong> {{ order.deliveryAddress }}</p>
+        <p><strong>Phone:</strong> {{ order.phone }}</p>
+        <p><strong>Order Placed On:</strong>{{order.placedDate}}</p>
+        <p><strong>Delivery Date:</strong> {{ order.deliveredDate }}</p>
+      </div>
+    </div>
+
+    <!-- Right Column: Price Section -->
+    <div class="price-section">
+      <button class="download-btn" (click)="downloadInvoice(order.id)">Download Invoice</button>
+
+      <div class="price-box">
+        <h4>Price Details</h4>
+        <div class="bill-box">
+          <p>Item Price: ₹{{ order.price }}</p>
+          <hr />
+          <p><strong>Total: ₹{{ order.price}}</strong></p>
+        </div>
+
+        <p class="payment-mode">Mode of Payment: {{ order.paymentMode }}</p>
+      </div>
+
+      <!-- Cancel & Return Section -->
+      <div class="cancel-return-section">
+        <div class="cancel-return-buttons">
+          <button class="cancel-btn"
+          [disabled]="!canCancelOrder()"
+                  (click)="goToCancelPage()">
+            Cancel Order
+          </button>
+          <button class="return-btn"
+          [disabled]="!canReturnOrder()"
+                  (click)="goToReturnPage()">
+            Return Order
+          </button>
+        </div>
+
+        <p *ngIf="!canReturnOrder() && order?.status === 'Delivered'" class="return-msg">
+          Return option is available only for 7 days after delivery.
+        </p>
+        <p *ngIf="order?.status === 'Cancelled'" class="return-msg">This order has been cancelled.</p>
+        <p *ngIf="order?.status === 'Returned'" class="return-msg">This order has been returned.</p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal-overlay" *ngIf="showRatingModal">
+  <div class="modal-content">
+    <h3>Rate this Product</h3>
+
+    <div class="stars">
+      <span
+        *ngFor="let star of stars; let i = index"
+        (click)="selectStar(i + 1)"
+        (mouseenter)="hoverStar(i + 1)"
+        (mouseleave)="hoverStar(0)"
+        [class.filled]="(i + 1) <= (hoveredRating || selectedRating)"
+      >
+        &#9733;
+      </span>
+    </div>
+
+    <textarea
+      placeholder="Write your review..."
+      [(ngModel)]="reviewText"
+    ></textarea>
+
+    <div class="modal-actions">
+      <button
+        [disabled]="selectedRating === 0"
+        (click)="submitRating()"
+      >
+        Submit
+      </button>
+      <button (click)="closeRatingModal()">Cancel</button>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

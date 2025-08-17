@@ -1,0 +1,150 @@
+<section id="chat-service" class="help-center-container">
+  <div class="help-header">
+    <h2>How can we help you today?</h2>
+    <p>Choose an option below or ask us anything</p>
+  </div>
+
+  <div class="service-options">
+    <div class="option-card" (click)="setFlag(1)">
+      <div class="option-icon">
+        <fa-icon [icon]="faTruck"></fa-icon>
+      </div>
+      <h3>Track Order</h3>
+      <p>Check your order status</p>
+    </div>
+
+    <div class="option-card" (click)="setFlag(2)">
+      <div class="option-icon">
+        <fa-icon [icon]="faChartLine"></fa-icon>
+      </div>
+      <h3>Popular Products</h3>
+      <p>See what's trending</p>
+    </div>
+
+    <div class="option-card" (click)="setFlag(3)">
+      <div class="option-icon">
+        <fa-icon [icon]="faHistory"></fa-icon>
+      </div>
+      <h3>Order History</h3>
+      <p>View past purchases</p>
+    </div>
+
+    <div class="option-card" (click)="setFlag(4)">
+      <div class="option-icon">
+        <fa-icon [icon]="faMessage"></fa-icon>
+      </div>
+      <h3>Ask away!!</h3>
+      <p>Have a question? We're here to help!</p>
+    </div>
+  </div>
+
+  <div class="help-content" [ngClass]="{'active': flag !== 0}">
+    @if(flag === 1){
+      <div class="content-card">
+        <h3>Track Your Order</h3>
+        <p>Enter your order ID to check the current status</p>
+        <div class="input-group">
+          <input type="text" [(ngModel)]="orderId" placeholder="Order ID (e.g. ORD12345)">
+          <button class="primary-btn" (click)="onTrack()">
+            <fa-icon [icon]="faSearch"></fa-icon> Track
+          </button>
+        </div>
+      </div>
+    }
+
+    @if(flag === 2){
+      <div class="content-card">
+        <h3>Our Top Selling Products</h3>
+        <p>These are our most popular items this month</p>
+        <div class="product-list">
+          <div class="product-item">
+            <fa-icon [icon]="faLaptop" class="product-icon"></fa-icon>
+            <div>
+              <h4>Laptops</h4>
+              <p>High-performance laptops for work and play</p>
+            </div>
+          </div>
+          <div class="product-item">
+            <fa-icon [icon]="faMobile" class="product-icon"></fa-icon>
+            <div>
+              <h4>Android Phones</h4>
+              <p>Latest smartphones with great features</p>
+            </div>
+          </div>
+          <div class="product-item">
+            <fa-icon [icon]="faTablet" class="product-icon"></fa-icon>
+            <div>
+              <h4>Tablets</h4>
+              <p>Perfect for entertainment and productivity</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    }
+
+    @if(flag === 3){
+      <div class="content-card">
+        <h3>Order History</h3>
+        <p>Enter your Email to receive your complete order history</p>
+        <div class="input-group">
+          <input type="email" [(ngModel)]="email" placeholder="Email (e.g. abc@example.com)">
+          <button class="primary-btn" (click)="onGetHistory()">
+            <fa-icon [icon]="faPaperPlane"></fa-icon> Order History
+          </button>
+        </div>
+      </div>
+    }
+
+    @if(flag === 4){
+       <div class="content-card">
+        <h3>Write Ur query</h3>
+        <p>Enter your Email to receive your complete order history</p>
+        <div class="input-group">
+          <input type="email" [(ngModel)]="query" placeholder="write the message">
+          <button class="primary-btn" (click)="onPostQuery()">
+            <fa-icon [icon]="faPaperPlane"></fa-icon> send
+          </button>
+        </div>
+      </div>
+    }
+
+@if(orderHistory.length>0&&flag===3){
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th>Order ID</th>
+          <th>Product Name</th>
+          <th>Status</th>
+          <th>Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for(order of orderHistory; track order.OrderID){
+          <tr>
+            <td>{{order.orderID}}</td>
+            <td>{{order.productName}}</td>
+            <td [class]="'status-' + order.status.toLowerCase()">
+              {{order.status}}
+            </td>
+            <td>{{order.price}} RS</td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+}
+
+    @if(response){
+      <div class="response-card" [ngClass]="{'success': response.success, 'error': !response.success}">
+        <fa-icon [icon]="response.success ? faCheckCircle : faExclamationCircle"></fa-icon>
+        <p>{{response.message}}</p>
+        @if(response.details){
+          <div class="response-details">
+            <p>{{response.details}}</p>
+          </div>
+        }
+      </div>
+    }
+  </div>
+</section>

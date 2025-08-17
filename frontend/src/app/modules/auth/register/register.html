@@ -1,0 +1,93 @@
+<div class="split-screen">
+  <!-- Register Form (Left Side) -->
+  <div class="left-panel">
+    <div class="form-card">
+      <h2 class="register-heading">Register</h2>
+      <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" novalidate>
+        <!-- First Name -->
+        <div class="form-group">
+          <input type="text" placeholder="First Name" formControlName="firstName"
+            [class.input-invalid]="firstName?.invalid && firstName?.touched" />
+          <span class="error-message"
+            *ngIf="firstName?.touched && firstName?.invalid">First name is required.</span>
+        </div>
+        <!-- Last Name -->
+        <div class="form-group">
+          <input type="text" placeholder="Last Name" formControlName="lastName"
+            [class.input-invalid]="lastName?.invalid && lastName?.touched" />
+          <span class="error-message"
+            *ngIf="lastName?.touched && lastName?.invalid">Last name is required.</span>
+        </div>
+        <!-- Email -->
+        <div class="form-group">
+          <input type="email" placeholder="Email Address" formControlName="email"
+            [class.input-invalid]="email?.invalid && email?.touched" />
+          <span class="error-message"
+            *ngIf="email?.touched && email?.invalid">
+            <span *ngIf="email?.errors?.['required']">Email is required.</span>
+            <span *ngIf="email?.errors?.['email']">Enter a valid email.</span>
+          </span>
+        </div>
+        <!-- Mobile -->
+        <div class="form-group">
+          <input type="text" placeholder="Mobile Number" formControlName="mobile"
+            [class.input-invalid]="mobile?.invalid && mobile?.touched" />
+          <span class="error-message"
+            *ngIf="mobile?.touched && mobile?.invalid">
+            <span *ngIf="mobile?.errors?.['required']">Mobile number is required.</span>
+            <span *ngIf="mobile?.errors?.['pattern']">Enter a valid 10-digit number.</span>
+          </span>
+        </div>
+        <!-- Password -->
+        <div class="form-group">
+          <input type="password" placeholder="Password" formControlName="password"
+            [class.input-invalid]="password?.invalid && password?.touched" />
+          <span class="error-message"
+            *ngIf="password?.touched && password?.invalid">
+            <span *ngIf="password?.errors?.['required']">Password is required.</span>
+            <span *ngIf="password?.errors?.['minlength']">Must be at least 6 characters.</span>
+          </span>
+        </div>
+        <!-- Confirm Password -->
+        <div class="form-group">
+          <input type="password" placeholder="Confirm Password" formControlName="confirmPassword"
+            [class.input-invalid]="confirmPassword?.invalid && confirmPassword?.touched || registerForm.errors?.['mismatch']" />
+          <span class="error-message"
+            *ngIf="confirmPassword?.touched && (confirmPassword?.invalid || registerForm.errors?.['mismatch'])">
+            <span *ngIf="confirmPassword?.errors?.['required']">Confirm your password.</span>
+            <span *ngIf="registerForm.errors?.['mismatch']">Passwords do not match.</span>
+          </span>
+        </div>
+        <!-- Select Role -->
+        <div class="form-group">
+          <select formControlName="role" [class.input-invalid]="role?.invalid && role?.touched">
+            <option value="" disabled>Select Role</option>
+            <option value="admin">Admin</option>
+            <option value="user">User</option>
+          </select>
+          <span class="error-message"
+            *ngIf="role?.touched && role?.invalid">Please select a role.</span>
+        </div>
+        <!-- Register Button -->
+        <button type="submit" [disabled]="registerForm.invalid">Register</button>
+      </form>
+      <div class="login-link">
+        Already have an account?
+        <a class="link" (click)="goToLogin()">Login</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Branding/Image Part (Right Side) -->
+  <div class="right-panel">
+    <div class="brand-card">
+      <img src="../../../../assets/cart/logo1.PNG" alt="Logo" class="logo-image" />
+      <div class="ecommerce-text">
+        <h3>Join NextBuy</h3>
+        <p>
+          Create your account to start shopping with the best deals and fastest delivery.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,59 @@
+<app-home-header></app-home-header>
+
+<div class="profile-container">
+  <!-- Greeting with photo upload -->
+  <div class="profile-greeting">
+    <label for="file-upload" class="avatar-upload-label" tabindex="0" aria-label="Upload profile photo">
+      <img *ngIf="userData.profileImageUrl" 
+           [src]="userData.profileImageUrl" 
+           alt="User Avatar" 
+           class="avatar-img" />
+      <div *ngIf="!userData.profileImageUrl" class="avatar-placeholder">
+        Upload Photo
+      </div>
+      <div class="upload-overlay">Change Photo</div>
+    </label>
+    <input type="file" id="file-upload" accept="image/*" (change)="onFileSelected($event)" hidden />
+    
+    <h2>Hello, {{ userData.firstName }}!</h2>
+  </div>
+
+  <!-- Cards + Action Buttons in Same Container -->
+  <div class="cards-grid">
+    <div class="card" (click)="navigateTo('/account-info')">
+      <h3>Account Info</h3>
+      <p>View your personal details</p>
+    </div>
+
+    <div class="card" (click)="navigateTo('/bio')">
+      <h3>Edit Info</h3>
+      <p>Update your profile details</p>
+    </div>
+
+    <div class="card" (click)="navigateTo('/address')">
+      <h3>Saved Addresses</h3>
+      <p>Manage your delivery locations</p>
+    </div>
+
+    <div class="card" (click)="navigateTo('/orders')">
+      <h3>Orders</h3>
+      <p>Check your order history</p>
+    </div>
+
+    <div class="card" (click)="navigateTo('/wishlist')">
+      <h3>Wishlist</h3>
+      <p>View saved items</p>
+    </div>
+
+    <!-- Action Buttons as Small Cards -->
+    <div class="card action-btn change-pass" (click)="navigateTo('/change-password')">
+      Change Password
+    </div>
+
+    <div class="card action-btn logout-btn" (click)="logout()">
+      Logout
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>

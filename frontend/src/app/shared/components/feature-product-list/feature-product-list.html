@@ -1,0 +1,12 @@
+<section id="featured-items">
+  <h3>Featured Products</h3>
+
+  <div class="featured-product-container">
+    @for (img of product_details(); track img.id) {
+      <app-product-card [image_items]="img" />
+    }
+  </div>
+  <button id="more-op-btn" (click)="onClick()">
+     <span><i class="fa fa-more-option"></i></span>View More
+  </button>
+</section>

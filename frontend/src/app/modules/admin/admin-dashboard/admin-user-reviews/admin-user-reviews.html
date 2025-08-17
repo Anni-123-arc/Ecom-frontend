@@ -1,0 +1,23 @@
+<!-- messages-container.component.html -->
+<div class="messages-container" (scroll)="onScroll($event)">
+    <div class="messages-header" [class.hide]="hideHeading">
+        <div class="header-icon">
+            <i class="fas fa-comment-dots"></i>
+        </div>
+        <h2>User Messages</h2>
+        <span class="message-count">{{messages.length}} unread</span>
+    </div>
+
+    @for(msg of messages; track msg.id) {
+    <app-review-card [messages]="msg" (replyH)="setHeader($event)"></app-review-card>
+    }
+
+    @if(messages.length ===0){
+    <div class="empty-state">
+        <i class="fas fa-comment-slash"></i>
+        <p>No messages yet</p>
+    </div>
+
+
+    }
+</div>

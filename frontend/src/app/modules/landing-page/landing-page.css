@@ -1,0 +1,25 @@
+/* Reset all margins and padding for full bleed layout */
+.full-bleed {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+body{
+    margin: 0px;
+}
+
+/* Ensure child components also have no spacing */
+#parent-container > * {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+/* Optional: If you need to constrain content width while keeping full bleed background */
+.content-constrain {
+    max-width: 1400px;
+    margin: 0 auto;
+}

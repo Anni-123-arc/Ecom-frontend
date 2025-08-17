@@ -1,0 +1,42 @@
+<div class="product-card">
+  <div class="product-img-container">
+    <div id="productImg">
+      <img [src]="image_items()?.url" [alt]="image_items()?.alt" class="product-img" />
+    </div>
+    <div class="product-actions">
+      <button class="action-btn wishlist-btn" aria-label="Add to wishlist">
+        <i class="fa fa-heart"></i>
+      </button>
+      <button class="action-btn quick-view-btn" aria-label="Quick view">
+        <i class="fa fa-eye"></i>
+      </button>
+    </div>
+  </div>
+
+  <div class="product-details">
+    <h3 class="product-title">{{ image_items()?.productName }}</h3>
+
+<div class="product-rating">
+  @for (star of stars; track $index) {
+  @if (star === 'full') {
+    <i class="fa fa-star"></i>
+  } @else if (star === 'half') {
+    <i class="fa fa-star-half-o"></i>
+  } @else {
+    <i class="fa fa-star-o"></i>
+  }
+}
+
+
+  <span class="rating-count">(128)</span>
+</div>
+
+
+    <div class="product-price">
+      <span class="current-price">{{image_items()?.discountPrice}} <i class="fa fa-rupee"></i></span>
+      <span class="original-price">{{image_items()?.price}} <i class="fa fa-rupee"></i></span>
+      <span class="discount">{{image_items()?.discount}} OFF</span>
+    </div>
+
+  </div>
+</div>

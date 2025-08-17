@@ -1,0 +1,28 @@
+<app-navbar></app-navbar>
+<div class="wishlist-container">
+  <div class="header">
+    <h2>My Wishlist ({{wishlistItems.length}})</h2>
+    <button (click)="navigateToCart()" class="view-cart-btn">View Cart</button>
+  </div>
+
+  @if (wishlistItems.length > 0) {
+    <div class="wishlist-items">
+      @for (item of wishlistItems; track item.id) {
+        <app-wishlist-item 
+          [item]="item"
+          (remove)="handleRemove($event)"
+          (moveToCart)="handleMoveToCart($event)">
+        </app-wishlist-item>
+      }
+    </div>
+  } @else {
+    <div class="empty-state">
+      <img src="../../../../../assets/cart/empty-wishlist.png" alt="Empty wishlist">
+      <h3>Your wishlist is empty</h3>
+      <button (click)="navigateToProducts()" class="shop-btn">
+        Browse Products
+      </button>
+    </div>
+  }
+</div>
+<app-footer></app-footer>

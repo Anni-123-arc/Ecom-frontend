@@ -1,0 +1,34 @@
+<!-- dashboard-header.component.html -->
+<header class="dashboard-header">
+    <div class="header-content">
+        <div class="header-left">
+            <h1 class="dashboard-title">
+                <i class="fas fa-tachometer-alt"></i>
+                Dashboard
+            </h1>
+            <div class="breadcrumb">
+                <span class="active">Home</span>
+
+            </div>
+        </div>
+
+        <div class="header-right">
+            <button class="sync-btn" (click)="navigateToHome()">
+                Home
+            </button>
+            <button class="sync-btn" (click)="logout()">
+                 Logout
+            </button>
+            <button class="sync-btn" (click)="syncData()" [class.syncing]="isSyncing">
+                <i class="fas" [class.fa-sync]="!isSyncing" [class.fa-spinner]="isSyncing"
+                    [class.fa-spin]="isSyncing"></i>
+                {{isSyncing ? 'Syncing...' : 'Sync Data'}}
+            </button>
+           
+            <div class="last-sync">
+                Last synced: {{lastSyncTime}}
+            </div>
+            
+        </div>
+    </div>
+</header>

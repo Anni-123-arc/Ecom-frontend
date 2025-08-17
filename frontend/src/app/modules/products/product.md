@@ -1,0 +1,1 @@
+adding products folder inside frontend/src/app/modules... directory

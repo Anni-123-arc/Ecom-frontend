@@ -1,0 +1,52 @@
+  <section class="admin-dashboard">
+  <!-- Sidebar Navigation -->
+  <aside class="dashboard-sidebar">
+    <app-admin-sidebar 
+      (isVisible)="setVisibility($event)" 
+      (isUpdateVisible)="setIsUpdateVisible($event)">
+    </app-admin-sidebar>
+  </aside>
+
+  <!-- Main Content Area -->
+  <main class="dashboard-content">
+    <app-admin-nav></app-admin-nav>
+    <!-- Stats Overview Section -->
+    <section class="stats-section">
+      <app-admin-sales-stats></app-admin-sales-stats>
+    </section>
+
+    <!-- Data Visualization Section -->
+    <section class="data-section">
+      <div class="orders-container">
+        <app-admin-order-management></app-admin-order-management>
+      </div>
+      <div class="messages-container">
+        <app-admin-user-reviews
+         (replyH)="setReplyHeade($event)"
+        ></app-admin-user-reviews>
+      </div>
+    </section>
+  </main>
+
+  <!-- Modal Forms -->
+  @if (isVisible) {
+    <app-add-form 
+      (hideM)="setVisibility($event)" 
+      (productToAdd)="AddToInventory($event)">
+    </app-add-form>
+  }
+  
+  @if (isUpdateVisible) {
+    <app-update-form 
+      (hideM)="setIsUpdateVisible($event)" 
+      (productToUpdate)="UpdateToInventory($event)">
+    </app-update-form>
+  }
+
+  @if (isReplyBoxVisible){
+    <app-reply-box
+    (replyS)="setReply($event)"
+       (isClose)="closeReplyBox($event)"
+    ></app-reply-box>
+  }
+</section>

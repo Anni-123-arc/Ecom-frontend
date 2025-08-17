@@ -1,0 +1,37 @@
+<div class="order-summary-container">
+  <div class="summary-card">
+    <h3 class="summary-title">Order Summary</h3>
+    
+    <div class="summary-details">
+      <div class="summary-row">
+        <span>Subtotal ({{getTotalItems()}} items)</span>
+        <span>{{cartService.getCartTotal() | currency:'INR'}}</span>
+      </div>
+      
+      <div class="summary-row">
+        <span>Shipping</span>
+        <span class="free-shipping">FREE</span>
+      </div>
+      
+      <div class="summary-row">
+        <span>Tax</span>
+        <span>{{cartService.getCartTotal() * 0.18 | currency:'INR'}}</span>
+      </div>
+      
+      <div class="divider"></div>
+      
+      <div class="summary-row total-row">
+        <span class="total-label">Order Total</span>
+        <span class="total-amount">{{getOrderTotal() | currency:'INR'}}</span>
+      </div>
+    </div>
+    
+    <button class="checkout-btn" (click)="proceedToCheckout()">
+      Proceed to Checkout
+    </button>
+    
+    <div class="payment-options">
+      <img src="../../../../../assets/cart/payment-options.png" alt="Payment options" class="payment-icons">
+    </div>
+  </div>
+</div>

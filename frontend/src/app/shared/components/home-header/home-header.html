@@ -1,0 +1,60 @@
+<header id="navbar-container">
+  <nav id="main-nav">
+    <ul id="inner-nav">
+
+      <!-- Logo -->
+      <li id="nav-logo">
+        <div id="logo">
+          <a href="/home" title="Go to homepage">
+            <img src="../../../../assets/cart/logo1.PNG" alt="Company Logo" />
+          </a>
+        </div>
+      </li>
+
+      <!-- Search -->
+      <li id="nav-search">
+        <form action="no">
+          <input
+            type="search"
+            name="search"
+            id="search"
+            placeholder="Search products..."
+            aria-label="Search products"
+          />
+          <button type="submit" aria-label="Search">
+            <i class="fa fa-search"></i>
+          </button>
+        </form>
+      </li>
+
+      <!-- Links -->
+      <li id="nav-links">
+
+        <!-- Profile -->
+        <a class="nav-icon-link" routerLink="/profile">
+          <i class="fa fa-user-circle"></i>
+          <span>Profile</span>
+        </a>
+
+        <!-- My Orders -->
+        <a class="nav-icon-link" routerLink="/orders">
+          <i class="fa fa-box"></i>
+          <span>My Orders</span>
+        </a>
+
+        <!-- Help -->
+        <a class="nav-icon-link" routerLink="/helpline">
+          <i class="fa fa-question-circle"></i>
+          <span>Help</span>
+        </a>
+
+        <!-- Cart -->
+        <a class="nav-icon-link cart-icon" routerLink="/cart">
+          <i class="fa fa-shopping-cart"></i>
+          <span>Cart <span class="cart-count">0</span></span>
+        </a>
+
+      </li>
+    </ul>
+  </nav>
+</header>

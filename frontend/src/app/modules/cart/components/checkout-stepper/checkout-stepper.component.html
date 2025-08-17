@@ -1,0 +1,124 @@
+<div class="demo-banner">
+  <mat-icon>info</mat-icon>
+  <span>DEMO MODE: No real payments will be processed</span>
+</div>
+
+<mat-horizontal-stepper linear>
+  <!-- Address Step -->
+  <mat-step>
+    <ng-template matStepLabel>Address</ng-template>
+    <app-address-selector (addressSelected)="onAddressSelected($event)"></app-address-selector>
+    <div class="stepper-actions">
+      <button mat-raised-button color="primary" matStepperNext [disabled]="!selectedAddressId">
+        Continue to Payment
+      </button>
+    </div>
+  </mat-step>
+
+  <!-- Payment Step -->
+  <mat-step [stepControl]="paymentForm">
+    <ng-template matStepLabel>Payment</ng-template>
+    
+    <form [formGroup]="paymentForm" class="payment-container">
+      <h3>Select Payment Method</h3>
+      
+      <mat-radio-group formControlName="method" class="payment-options" 
+                      (change)="selectedMethod = $event.value">
+        <mat-radio-button value="credit_card" class="payment-option">
+          <mat-icon>credit_card</mat-icon> Credit/Debit Card
+        </mat-radio-button>
+        <mat-radio-button value="paypal" class="payment-option">
+          <mat-icon>account_balance_wallet</mat-icon> PayPal
+        </mat-radio-button>
+      </mat-radio-group>
+
+      <!-- Test Card Selector -->
+      <div *ngIf="paymentForm.get('method')?.value === 'credit_card'" class="test-cards">
+        <h4>Demo Cards:</h4>
+        <div class="test-card-buttons">
+          <button *ngFor="let card of testCards" mat-stroked-button (click)="selectTestCard(card)">
+            {{card.type}}
+          </button>
+        </div>
+      </div>
+
+      <!-- Credit Card Form -->
+      <div *ngIf="paymentForm.get('method')?.value === 'credit_card'" class="card-form">
+        <mat-form-field appearance="outline">
+          <mat-label>Name on Card</mat-label>
+          <input matInput formControlName="nameOnCard" required>
+          <mat-error>Name is required</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Card Number</mat-label>
+          <input matInput formControlName="cardNumber" required>
+          <mat-error>Valid card number required</mat-error>
+        </mat-form-field>
+
+        <div class="row">
+          <mat-form-field appearance="outline">
+            <mat-label>Expiry (MM/YY)</mat-label>
+            <input matInput formControlName="expiry" required>
+            <mat-error>Valid expiry required</mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>CVV</mat-label>
+            <input matInput formControlName="cvv" type="password" required>
+            <mat-icon matSuffix>lock</mat-icon>
+            <mat-error>3-4 digit code required</mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <!-- PayPal Notice -->
+      <div *ngIf="paymentForm.get('method')?.value === 'paypal'" class="paypal-notice">
+        <p>You'll be redirected to PayPal's demo environment</p>
+        <p>Use <strong> demo&#64;example.com</strong> and any password</p>
+        
+        <input type="hidden" formControlName="nameOnCard" value="PayPal User">
+        <input type="hidden" formControlName="cardNumber" value="paypal">
+        <input type="hidden" formControlName="expiry" value="01/99">
+        <input type="hidden" formControlName="cvv" value="000">
+      </div>
+    </form>
+
+    <div class="stepper-actions">
+      <button mat-button matStepperPrevious>Back</button>
+      <button mat-raised-button color="primary" matStepperNext
+              [disabled]="!paymentForm.valid || processingPayment"
+              (click)="debugForm()">
+        <span *ngIf="!processingPayment">Review Order</span>
+        <span *ngIf="processingPayment">
+          <mat-icon class="spinner">hourglass_top</mat-icon> Processing...
+        </span>
+      </button>
+    </div>
+  </mat-step>
+
+  <!-- Review Step -->
+  <mat-step>
+    <ng-template matStepLabel>Review</ng-template>
+    <div class="review-section" *ngIf="!orderConfirmed; else confirmation">
+      <h3>Order Summary</h3>
+      <!-- Add your order review content here -->
+      <button mat-raised-button color="primary" 
+              (click)="submitOrder()"
+              [disabled]="processingPayment">
+        <span *ngIf="!processingPayment">Place Order</span>
+        <span *ngIf="processingPayment">
+          <mat-icon class="spinner">hourglass_top</mat-icon> Processing...
+        </span>
+      </button>
+    </div>
+
+    <ng-template #confirmation>
+      <div class="order-confirmed">
+        <mat-icon class="success-icon">check_circle</mat-icon>
+        <h3>Order Confirmed!</h3>
+        <p>Your demo order has been placed successfully.</p>
+      </div>
+    </ng-template>
+  </mat-step>
+</mat-horizontal-stepper>

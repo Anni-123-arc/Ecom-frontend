@@ -1,0 +1,23 @@
+<div class="cart-item">
+  <div class="product-details">
+    <img [src]="'assets/images/' + item.image" alt="{{item.name}}" class="product-image">
+    <div class="product-info">
+      <h3 class="product-name">{{item.name}}</h3>
+      <p class="product-description">{{item.description}}</p>
+    </div>
+  </div>
+  
+  <div class="quantity-section">
+    <div class="quantity-control">
+      <button class="quantity-btn" (click)="onUpdateQuantity(-1)">-</button>
+      <span class="quantity">{{item.quantity}}</span>
+      <button class="quantity-btn" (click)="onUpdateQuantity(1)">+</button>
+    </div>
+  </div>
+  
+  <div class="price-section">
+    <div class="total-amount">${{(item.price * item.quantity).toFixed(2)}}</div>
+    <!-- cart-item.component.html -->
+    <button class="remove-btn" (click)="onRemove()">Remove</button>
+  </div>
+</div>

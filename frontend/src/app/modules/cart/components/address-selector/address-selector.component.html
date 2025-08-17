@@ -1,0 +1,32 @@
+<!-- address-selector.component.html -->
+<div class="address-selector">
+  <h3>Select Delivery Address</h3>
+  
+  <mat-radio-group 
+    [(ngModel)]="selectedAddress"
+    (change)="onAddressChange()"
+    class="address-list"
+  >
+    <mat-radio-button 
+      *ngFor="let address of addresses" 
+      [value]="address.id"
+      class="address-option"
+    >
+      <div class="address-details">
+        <strong>{{address.street}}</strong>
+        <div>{{address.city}}, {{address.state}} {{address.zip}}</div>
+        <div>{{address.country}}</div>
+      </div>
+    </mat-radio-button>
+  </mat-radio-group>
+
+  <button mat-stroked-button (click)="addNewAddress()">
+    <mat-icon>add</mat-icon>
+    Add New Address
+  </button>
+
+  <!-- New Address Form (would be a separate component) -->
+  <div *ngIf="showAddNewForm" class="new-address-form">
+    <!-- Address form implementation here -->
+  </div>
+</div>

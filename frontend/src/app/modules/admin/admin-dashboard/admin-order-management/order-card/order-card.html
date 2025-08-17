@@ -1,0 +1,38 @@
+<!-- order-card.component.html -->
+<div class="order-card" [class.status-delivered]="order.DeliveryStatus === 'Delivered'"
+                      [class.status-pending]="order.DeliveryStatus === 'Pending'"
+                      [class.status-shipped]="order.DeliveryStatus === 'Shipped'"
+                      [class.status-cancelled]="order.DeliveryStatus === 'Cancelled'">
+  <div class="order-id">
+    <span class="label">Order ID</span>
+    <span class="value">#{{order.OrderId}}</span>
+  </div>
+  
+  <div class="customer">
+    <span class="label">Customer</span>
+    <span class="value">{{order.CustomerId}}</span>
+  </div>
+  
+  <div class="product">
+    <span class="label">Product</span>
+    <span class="value">{{order.ProductId}}</span>
+  </div>
+  
+  <div class="status">
+    <span class="status-badge">{{order.DeliveryStatus}}</span>
+  </div>
+  
+  <div class="amount">
+    <span class="label">Amount</span>
+    <span class="value">₹{{order.TotalAmount}}</span>
+  </div>
+  
+  <div class="actions">
+    <button class="action-btn view-btn" (click)="viewOrder()">
+      <i class="fas fa-eye"></i>
+    </button>
+    <button class="action-btn more-btn">
+      <i class="fas fa-ellipsis-v"></i>
+    </button>
+  </div>
+</div>

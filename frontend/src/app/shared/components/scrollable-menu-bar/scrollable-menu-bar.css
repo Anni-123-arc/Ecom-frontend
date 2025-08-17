@@ -1,0 +1,115 @@
+/* === Global Reset === */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* === Navbar === */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  background: linear-gradient(135deg, #003366, #1a3b5d);
+  color: white;
+  padding: 10px 20px;
+  height: 55px;
+  position: fixed;
+  top: 50px;
+  width: 100%;
+  z-index: 1000;
+  font-family: 'Segoe UI', 'Roboto', sans-serif;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+/* === Menu Button === */
+.menu-button {
+  font-size: 26px;
+  background: transparent;
+  border: none;
+  color: white;
+  margin-right: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.menu-button:hover {
+  color: #66b2ff;
+  transform: scale(1.1);
+}
+
+/* === Scrolling Message Container === */
+.scrolling-message {
+  flex-grow: 1;
+  overflow: hidden;
+  position: relative;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+}
+
+/* === Message Track === */
+.message-wrapper {
+  display: flex;
+  animation: scroll-messages 25s linear infinite;
+  white-space: nowrap;
+}
+
+/* === Individual Message === */
+.message-wrapper span {
+  margin-right: 80px;
+  font-size: 16.5px;
+  font-weight: 500;
+  color: #e0f0ff;
+  font-family: 'Segoe UI', 'Roboto', sans-serif;
+  transition: color 0.3s ease;
+  white-space: nowrap;
+}
+
+.message-wrapper span:hover {
+  color: #ffffff;
+}
+
+/* === Scroll Animation === */
+@keyframes scroll-messages {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* === Responsive Adjustments === */
+@media (max-width: 768px) {
+  .navbar {
+    height: 50px;
+    padding: 8px 16px;
+  }
+
+  .menu-button {
+    font-size: 22px;
+    margin-right: 16px;
+  }
+
+  .message-wrapper span {
+    font-size: 14.5px;
+    margin-right: 60px;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    justify-content: space-between;
+  }
+
+  .scrolling-message {
+    justify-content: flex-start;
+  }
+
+  .message-wrapper span {
+    font-size: 13.5px;
+    margin-right: 50px;
+  }
+}

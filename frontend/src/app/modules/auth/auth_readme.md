@@ -1,0 +1,1 @@
+added auth folder inside frontend/src/app/modules... directory

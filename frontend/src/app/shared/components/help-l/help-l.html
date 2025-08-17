@@ -1,0 +1,85 @@
+<app-nav-bar></app-nav-bar>
+<section class="helpline-container">
+  <div class="helpline-header">
+    <h2>New Here? Let Us Guide You!</h2>
+    <p>Here’s everything you need to know to get started on our website.</p>
+  </div>
+
+  <div class="helpline-grid">
+    <!-- Step 1 -->
+    <div class="helpline-card">
+      <i class="fa fa-user-plus icon"></i>
+      <h3>Create an Account</h3>
+      <p>Click on the <strong>Register</strong> button on the top-right corner.</p>
+      <p>Fill in your details and verify your email.</p>
+      <small>It takes less than 2 minutes</small>
+    </div>
+
+    <!-- Step 2 -->
+    <div class="helpline-card">
+      <i class="fa fa-sign-in icon"></i>
+      <h3>Log In</h3>
+      <p>Already registered? Click on <strong>Login</strong> at the top.</p>
+      <p>Enter your email & password to access your account.</p>
+      <small>Secure & encrypted login</small>
+    </div>
+
+    <!-- Step 3 -->
+    <div class="helpline-card">
+      <i class="fa fa-info-circle icon"></i>
+      <h3>Explore Features</h3>
+      <p>Browse categories, check offers, and add products to your cart.</p>
+      <p>You can also explore without logging in.</p>
+      <small>Some features require login</small>
+    </div>
+  </div>
+
+  <!-- FAQs Section -->
+  <div class="faq-section">
+    <h3>Getting Started FAQs</h3>
+
+    <!-- Category 1 -->
+    <div class="faq-category">
+      <button class="faq-toggle" (click)="toggleCategory('accountSetup')">
+        Account Setup
+        <i class="fa" [ngClass]="openCategory === 'accountSetup' ? 'fa-chevron-up' : 'fa-chevron-down'"></i>
+      </button>
+      <div class="faq-dropdown" [class.active]="openCategory === 'accountSetup'">
+        <ul>
+          <li><strong>Do I need an account to shop?</strong><br />You can browse without logging in, but to buy, you need an account.</li>
+          <li><strong>Is registration free?</strong><br />Yes, creating an account is completely free.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Category 2 -->
+    <div class="faq-category">
+  <button class="faq-toggle" (click)="toggleCategory('loginIssues')">
+    Login Help
+    <i class="fa" [ngClass]="openCategory === 'loginIssues' ? 'fa-chevron-up' : 'fa-chevron-down'"></i>
+  </button>
+  <div class="faq-dropdown" [class.active]="openCategory === 'loginIssues'">
+    <ul>
+      <li><strong>I forgot my password. What now?</strong><br />Click “Forgot Password” on the login page to reset it.</li>
+      <li><strong>Why does it say my account doesn't exist?</strong><br />Make sure you registered with the same email you are trying to log in with, or sign up if you’re new.</li>
+    </ul>
+  </div>
+</div>
+
+
+    <!-- Category 3 -->
+    <div class="faq-category">
+      <button class="faq-toggle" (click)="toggleCategory('siteInfo')">
+        Website Info
+        <i class="fa" [ngClass]="openCategory === 'siteInfo' ? 'fa-chevron-up' : 'fa-chevron-down'"></i>
+      </button>
+      <div class="faq-dropdown" [class.active]="openCategory === 'siteInfo'">
+        <ul>
+          <li><strong>Is my data safe here?</strong><br />Yes, we use encryption to protect your information.</li>
+          <li><strong>Can I use the site on mobile?</strong><br />Absolutely, our site is mobile-friendly.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+<app-footer></app-footer>

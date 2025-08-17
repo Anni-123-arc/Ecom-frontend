@@ -1,0 +1,206 @@
+.order-container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 100vh; /* Full viewport height */
+  overflow: hidden; /* Prevent page scroll */
+  margin-top: 50px;
+}
+
+/* Sidebar Styles */
+.sidebar {
+  width: 250px;
+  background-color: #e6f0ff; /* Soft light blue background */
+  padding: 20px;
+  border-right: 1px solid #ccc;
+  flex-shrink: 0;
+  overflow-y: auto;
+}
+
+.sidebar h4 {
+  margin-bottom: 10px;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar li {
+  margin-bottom: 8px;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 4px;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.sidebar li.active,
+.sidebar li:hover {
+  background-color: #4a90e2; /* Bright blue hover */
+  color: white;
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  gap: 16px;
+  height: 100vh; /* Ensure full height */
+  box-sizing: border-box;
+}
+
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.search-bar {
+  flex: 1;
+  padding: 8px;
+  min-width: 200px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.year-dropdown {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  min-width: 150px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Scrollable Orders Section */
+.orders-scrollable {
+  flex: 1;
+  overflow-y: auto;
+  padding-right: 8px;
+}
+
+.order-card {
+  display: flex;
+  align-items: center;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #fff;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.product-image {
+  width: 175px;      /* Adjust width as needed */
+  height: auto;      /* Keeps aspect ratio */
+  object-fit: contain; /* Ensures the entire image fits inside the box */
+  display: block;
+  margin: 0 auto;
+}
+
+.order-info {
+  flex-grow: 1;
+}
+
+/* Status badges with gradient */
+.status {
+  font-weight: bold;
+  padding: 4px 10px;
+  border-radius: 12px;
+  display: inline-block;
+  color: white;
+  font-size: 0.85rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.12);
+  text-align: center;
+  min-width: 80px;
+}
+
+/* Gradient backgrounds for each status */
+.status-delivered {
+  background: linear-gradient(135deg, #28a745, #4cd964); /* Green gradient */
+}
+
+.status-shipped {
+  background: linear-gradient(135deg, #fd7e14, #ffa347); /* Orange gradient */
+}
+
+.status-cancelled {
+  background: linear-gradient(135deg, #dc3545, #e86c77); /* Red gradient */
+}
+
+.status-returned {
+  background: linear-gradient(135deg, #5a7bcf, #7a92e0); /* Light grand blue gradient */
+}
+
+/* View Order Button */
+.view-btn {
+  background: linear-gradient(135deg, #5a7bcf, #7a92e0); /* Light grand blue */
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  white-space: nowrap;
+  font-weight: 500;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.12);
+  transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.view-btn:hover {
+  background: linear-gradient(135deg, #7a92e0, #5a7bcf); /* Darker gradient on hover */
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.view-btn:active {
+  transform: scale(0.98);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Hover effect for desktop */
+.order-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+}
+
+/* Touch feedback for mobile */
+.order-card:active {
+  transform: translateY(-2px);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+@media screen and (max-width: 768px) {
+  .order-container {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    max-width: 100%;
+    border-right: none;
+    border-bottom: 1px solid #ccc;
+  }
+
+  .toolbar {
+    flex-direction: column;
+  }
+
+  .search-bar,
+  .year-dropdown {
+    width: 100%;
+  }
+
+  .order-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .view-btn {
+    align-self: flex-end;
+  }
+}

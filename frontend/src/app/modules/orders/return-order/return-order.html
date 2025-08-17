@@ -1,0 +1,43 @@
+<app-home-header></app-home-header>
+<div class="return-page">
+  <h2>Return Order - {{ order?.id }}</h2>
+  <p>Select a reason for return:</p>
+  <div class="return-reasons-box">
+    <label><input type="checkbox" [(ngModel)]="reasons.damaged" /> Item damaged</label>
+    <label><input type="checkbox" [(ngModel)]="reasons.wrongItem" /> Wrong item delivered</label>
+    <label><input type="checkbox" [(ngModel)]="reasons.notNeeded" /> No longer needed</label>
+    <label><input type="checkbox" [(ngModel)]="reasons.duplicateorder" /> Received duplicate order</label>
+    <label><input type="checkbox" [(ngModel)]="reasons.poorquality" /> Poor quality or workmanship</label>
+    <label>
+      <input type="checkbox" [(ngModel)]="reasons.other" /> Other
+    </label>
+    <textarea *ngIf="reasons.other" [(ngModel)]="reasons.otherReason" placeholder="Enter reason"></textarea>
+  </div>
+
+  <!-- Image Upload Section -->
+  <div class="image-upload-section">
+    <label>Upload Images:</label>
+    <div class="image-list">
+      <div class="image-preview" *ngFor="let img of imagePreviews; let i = index">
+        <img [src]="img" alt="Preview" />
+        <button class="delete-btn" (click)="removeImage(i)" title="Remove image">&times;</button>
+      </div>
+
+      <div class="image-square" (click)="fileInput.click()">
+        <span>+</span>
+        <p>Add Image</p>
+        <input
+          type="file"
+          #fileInput
+          accept="image/*"
+          multiple
+          (change)="onImagesSelected($event)"
+          hidden
+        />
+      </div>
+    </div>
+  </div>
+
+  <button (click)="confirmReturn()">Confirm Return</button>
+</div>
+<app-footer></app-footer>

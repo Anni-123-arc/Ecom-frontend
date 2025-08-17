@@ -1,0 +1,99 @@
+/* ===== Container ===== */
+.bio-form-container {
+  max-width: 480px;
+  margin: 90px auto 40px;
+  background: linear-gradient(145deg, #ffffff, #f8fbff);
+  border-radius: 16px;
+  padding: 28px 26px;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(25, 118, 210, 0.08);
+  font-family: 'Poppins', sans-serif;
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+/* ===== Heading ===== */
+.bio-form-container h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #0d47a1;
+  margin-bottom: 22px;
+  border-bottom: 2px solid #1976d2;
+  padding-bottom: 6px;
+}
+
+/* ===== Form Groups ===== */
+.form-group {
+  margin-bottom: 18px;
+}
+
+.bio-form-container label {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #134074;
+  margin-bottom: 6px;
+}
+
+/* ===== Input Styling ===== */
+.bio-form-container input {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid #ccd6e4;
+  font-size: 0.95rem;
+  color: #333;
+  background-color: #f9fbfe;
+  transition: all 0.25s ease;
+}
+
+.bio-form-container input:focus {
+  border-color: #1976d2;
+  box-shadow: 0 0 0 3px rgba(25, 118, 210, 0.15);
+  outline: none;
+  background-color: #fff;
+}
+
+.bio-form-container input[disabled] {
+  background-color: #f0f3f9;
+  cursor: not-allowed;
+}
+
+/* ===== Button Styling ===== */
+.bio-form-container button {
+  width: 100%;
+  padding: 12px 0;
+  background: linear-gradient(90deg, #1976d2, #42a5f5);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.bio-form-container button:hover {
+  background: linear-gradient(90deg, #1565c0, #1e88e5);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(25, 118, 210, 0.25);
+}
+
+/* ===== Animations ===== */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 520px) {
+  .bio-form-container {
+    margin: 50px 14px;
+    padding: 20px;
+    border-radius: 12px;
+  }
+
+  .bio-form-container h3 {
+    font-size: 1.3rem;
+  }
+}

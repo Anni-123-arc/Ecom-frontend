@@ -1,0 +1,26 @@
+<!-- inventory-card.component.html -->
+<div class="inventory-card">
+  <div class="card-header">
+    <span class="product-id">#{{ product_id }}</span>
+    <span class="product-category">{{ category }}</span>
+  </div>
+  
+  <h3 class="product-name">{{ product_name }}</h3>
+  
+  <div class="card-details">
+    <div class="detail-item">
+      <span class="detail-label">Price</span>
+      <span class="detail-value">₹{{ price }}</span>
+    </div>
+    
+    <div class="detail-item stock-item" [class.low-stock]="stock < 10">
+      <span class="detail-label">Stock</span>
+      <span class="detail-value">{{ stock }}</span>
+      <span class="stock-indicator"></span>
+    </div>
+  </div>
+  
+  <button class="delete-btn" (click)="onDelete()">
+    <i class="fas fa-trash-alt"></i>
+  </button>
+</div>

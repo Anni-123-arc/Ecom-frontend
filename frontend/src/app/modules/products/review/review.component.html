@@ -1,0 +1,15 @@
+<div class="review-section">
+  <h3>Customer Reviews</h3>
+  <div *ngIf="reviews.length === 0">No reviews yet.</div>
+
+  <div class="review" *ngFor="let review of reviews">
+    <strong>{{ review.user }}:</strong>
+    <span class="stars">
+      <ng-container *ngFor="let star of getStarsArray(review.rating)">
+        <span [ngClass]="star.full ? 'full-star' : 'empty-star'">&#9733;</span>
+      </ng-container>
+      ({{ review.rating }}/5)
+    </span>
+    <p>{{ review.comment }}</p>
+  </div>
+</div>

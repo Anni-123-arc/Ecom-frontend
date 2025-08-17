@@ -1,0 +1,246 @@
+.helpline-container {
+  padding: 2rem 1rem;
+  max-width: 1300px;
+  margin: auto;
+  margin-top: 10px;
+  font-family: 'Segoe UI', sans-serif;
+  background: #0572de37;
+}
+
+.helpline-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.helpline-header h2 {
+  font-size: 2.2rem;
+  color: #003366;
+  margin-bottom: 0.5rem;
+}
+
+.helpline-header p {
+  color: #555;
+  font-size: 1.1rem;
+}
+
+.helpline-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+}
+
+.helpline-card {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  padding: 1.8rem 1.5rem;
+  text-align: center;
+  transition: all 0.3s ease-in-out;
+}
+
+.helpline-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+}
+
+.icon {
+  font-size: 2.7rem;
+  color: #0059b3;
+  margin-bottom: 1rem;
+}
+
+.helpline-card h3 {
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+  color: #003366;
+}
+
+.helpline-card p {
+  margin: 0.4rem 0;
+  color: #444;
+  line-height: 1.5;
+}
+
+.chat-button {
+  margin-top: 0.6rem;
+  background-color: #0059b3;
+  color: #fff;
+  border: none;
+  padding: 0.7rem 1.5rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.3s;
+}
+
+.chat-button:hover {
+  background-color: #004080;
+}
+
+/* FAQ toggle button */
+.faq-toggle {
+  margin-top: 0.8rem;
+  background-color: #e6f0ff;
+  color: #0059b3;
+  border: none;
+  padding: 0.6rem 1rem;
+  border-radius: 50px;
+  cursor: pointer;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 6px rgba(0, 89, 179, 0.15);
+}
+
+.faq-toggle:hover {
+  background-color: #d0e5ff;
+  box-shadow: 0 4px 12px rgba(0, 89, 179, 0.2);
+}
+
+.faq-toggle i {
+  transition: transform 0.3s ease;
+}
+
+.faq-dropdown {
+  margin-top: 1rem;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease, opacity 0.5s ease;
+  opacity: 0;
+  transform: scaleY(0.9);
+  transform-origin: top;
+}
+
+.faq-dropdown.active {
+  max-height: 1000px;
+  opacity: 1;
+  transform: scaleY(1);
+}
+
+.faq-dropdown ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 1rem;
+  text-align: left;
+}
+
+.faq-dropdown li {
+  margin-bottom: 1rem;
+  padding: 0.7rem 1rem;
+  background: #f0f7ff;
+  border-left: 4px solid #0059b3;
+  border-radius: 5px;
+  font-size: 0.95rem;
+  color: #333;
+  transition: background 0.3s;
+}
+
+.faq-dropdown li:hover {
+  background: #e6f0ff;
+}
+.faq-section {
+  margin-top: 3rem;
+  background: #ffffff;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+}
+
+.faq-section h3 {
+  text-align: center;
+  color: #003366;
+  margin-bottom: 2rem;
+  font-size: 1.6rem;
+}
+
+.faq-category {
+  margin-bottom: 1.5rem;
+}
+
+.faq-toggle {
+  width: 100%;
+  background-color: #e6f0ff;
+  color: #0059b3;
+  border: none;
+  padding: 0.9rem 1.2rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.faq-toggle:hover {
+  background-color: #d0e5ff;
+}
+
+.faq-dropdown {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.5s ease, opacity 0.5s ease;
+  transform: scaleY(0.9);
+  transform-origin: top;
+}
+
+.faq-dropdown.active {
+  max-height: 1000px;
+  opacity: 1;
+  transform: scaleY(1);
+  margin-top: 1rem;
+}
+
+.faq-dropdown ul {
+  list-style: none;
+  padding: 0;
+}
+
+.faq-dropdown li {
+  margin-bottom: 1rem;
+  padding: 1rem;
+  background: #f0f7ff;
+  border-left: 4px solid #0059b3;
+  border-radius: 5px;
+  font-size: 0.95rem;
+  color: #333;
+}
+
+@media (max-width: 600px) {
+  .faq-section h3 {
+    font-size: 1.3rem;
+  }
+
+  .faq-toggle {
+    font-size: 0.95rem;
+    padding: 0.8rem 1rem;
+  }
+
+  .faq-dropdown li {
+    font-size: 0.9rem;
+  }
+}
+
+
+/* Mobile Responsiveness */
+@media (max-width: 600px) {
+  .helpline-header h2 {
+    font-size: 1.5rem;
+  }
+
+  .helpline-card {
+    padding: 1.2rem 1rem;
+  }
+
+  .icon {
+    font-size: 2.2rem;
+  }
+
+  .faq-dropdown li {
+    font-size: 0.9rem;
+  }
+}

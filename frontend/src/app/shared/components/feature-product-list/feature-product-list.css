@@ -1,0 +1,29 @@
+#featured-items {
+    /* border: 5px solid; */
+    padding: 10px;
+
+}
+#featured-items h3{
+    font-size: 30px;
+    text-align: center;
+}
+
+.featured-product-container {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#more-op-btn{
+    padding: 10px;
+    position: relative;
+    left: 90%;
+    margin: 10px;
+   background: linear-gradient(to right, #1a2a6c, #3a7bd5);
+   color: white;
+   font: italic;
+   cursor: pointer;
+   border-radius: 10px;
+}

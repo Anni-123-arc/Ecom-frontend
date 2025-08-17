@@ -1,0 +1,46 @@
+/* admin-sidebar.component.scss */
+.admin-sidebar {
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+  padding: 24px;
+  height: 125vh;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  overflow-y: hidden;
+}
+
+.sidebar-header {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  
+  h2 {
+    margin: 0;
+    font-size: 20px;
+    color: #2d3748;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    
+    i {
+      color: #667eea;
+    }
+  }
+}
+
+.sidebar-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.inventory-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  overflow-y: auto;
+  flex-grow: 1;
+  padding-right: 8px;
+}

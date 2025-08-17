@@ -1,0 +1,278 @@
+/* --- Layout using CSS Grid --- */
+.split-screen {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 100vh;
+  background: linear-gradient(90deg, #e3f2fd 0%, #f6fafe 100%);
+}
+
+/* Same height for branding and form card */
+.left-panel, .right-panel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 0;
+  height: 100%;
+  min-height: 100vh;
+ 
+  
+}
+.left-panel {
+ border-right: 2px solid rgba(21, 101, 192, 0.15);
+}
+.brand-card, .form-card {
+  /* Card style */
+  background: rgba(255,255,255,0.91);
+  box-shadow: 0 8px 42px rgba(21,101,192,0.14);
+  border-radius: 18px;
+  max-width: 370px;
+  width: 95%;
+  margin: 0 auto;
+  padding: 2.5rem 2rem 1.7rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: box-shadow 0.2s;
+}
+.brand-card {
+  gap: 0;
+  
+  background-color: #ebf0f4;
+  text-align: center;
+
+  
+}
+.form-card {
+  gap: 0.1rem;
+  padding-top: 10px;
+  padding-bottom: 20px;
+  padding-right: 20px;
+  padding-left: 20px;
+  
+  
+}
+
+/* --- Branding Styles --- */
+.logo-image {
+  width: 100%;
+  max-width: 240px;
+  height: auto;
+  border-radius: 24px;
+  box-shadow: 0 8px 30px rgba(21,101,192,0.13);
+  margin-bottom: 1.6rem;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  
+}
+.logo-image:hover {
+  transform: scale(1.07) rotate(0.5deg);
+  box-shadow: 0 14px 40px rgba(21,101,192,0.21);
+  filter: brightness(1.05);
+}
+
+/* --- Heading and Branding Text --- */
+/* .ecommerce-text {
+  width: 100%;
+  max-width: 320px;
+  text-align: center;
+  margin: 0 auto;
+} */
+.ecommerce-text h3 {
+  font-size: 1.9rem;
+  font-weight: 700;
+  margin: 0.7rem 0 0.42rem 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #1565c0;
+  letter-spacing: 0.04em;
+  text-shadow: 0 1px 2px rgba(21,101,192,0.15);
+  /* position: relative; */
+  animation: fadeInUp 0.7s ease forwards;
+}
+.ecommerce-text h3::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, #1565c0, #42a5f5);
+  margin: 0.5rem auto 0;
+  border-radius: 2px;
+  animation: growBar 0.8s ease forwards;
+}
+.ecommerce-text p {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #2f5588;
+  margin-top: 0.5rem;
+  margin-bottom: 0;
+  max-width: 270px;
+  line-height: 1.45;
+  opacity: 0;
+  animation: fadeInMsg 1s ease forwards 0.3s;
+}
+@keyframes fadeInMsg { from { opacity: 0; } to { opacity: 1; } }
+@keyframes growBar { from { width: 0; } to { width: 60px; } }
+/* --- Form Styles --- */
+.register-heading {
+  text-align: center;
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: #1565c0;
+  letter-spacing: 0.02em;
+  margin-bottom: 1rem;
+  margin-top: 0;
+}
+
+form {
+  width: 100%;
+  margin-top: 0.7rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.03rem;
+}
+
+.form-group {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  margin-bottom: 0.5rem;
+}
+
+input, select {
+  font-family: inherit;
+  width: 100%;
+  padding: 0.77rem 1rem;
+  border: 1.6px solid #c9d9ed;
+  border-radius: 9px;
+  font-size: 1.06rem;
+  background-color: #f4f8fd;
+  color: #212121;
+  transition: box-shadow 0.22s, background 0.13s, border-color 0.1s;
+  box-sizing: border-box;
+}
+input:focus, select:focus {
+  background: #e3f2fd;
+  border-color: #1976d2;
+  box-shadow: 0 0 0 2px #deeaf9, 0 2px 8px rgba(21,101,192,0.14);
+  outline: none;
+}
+
+/* Error Border for invalid input */
+.input-invalid {
+  border-color: #e53935 !important;
+  background: #fff6f6 !important;
+}
+
+select {
+  appearance: none;
+  cursor: pointer;
+}
+
+/* Error message directly beneath input, aligned with input text */
+.error-message {
+  color: #d32f2f;
+  font-size: 0.97rem;
+  margin-left: 2px;
+  margin-top: 0.08rem;
+  margin-bottom: 0.12rem;
+  padding-left: 1px;
+  text-align: left;
+  min-height: 18px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  transition: color 0.15s;
+  white-space: normal;
+  display: block;
+}
+
+button[type="submit"] {
+  width: 100%;
+  padding: 0.82rem 0;
+  background: linear-gradient(92deg, #1565c0 0%, #1976d2 100%);
+  border: none;
+  border-radius: 9px;
+  font-size: 1.13rem;
+  font-weight: 600;
+  color: #fff;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  box-shadow: 0 4px 22px rgba(21,101,192,0.10);
+  margin-top: 0.34rem;
+  margin-bottom: 0.08rem;
+  transition: background 0.23s, transform 0.15s;
+}
+button[type="submit"]:hover:not(:disabled) {
+  background: linear-gradient(90deg, #1976d2 50%, #0d47a1 100%);
+  transform: scale(1.01);
+}
+button[type="submit"]:disabled {
+  background: #b7cced;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* --- Login link below form --- */
+.login-link {
+  text-align: center;
+  margin-top: 1.14rem;
+  font-size: 1rem;
+  color: #3573c2;
+  font-weight: 500;
+}
+.link {
+  color: #1565c0;
+  font-weight: 600;
+  text-decoration: underline;
+  cursor: pointer;
+  margin-left: 2px;
+  transition: color 0.16s, text-decoration 0.2s;
+}
+.link:hover {
+  color: #0d47a1;
+  text-decoration: none;
+}
+
+/* --- Responsive --- */
+@media (max-width: 880px) {
+  .split-screen {
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+  }
+  .left-panel, .right-panel {
+    min-height: unset;
+    height: auto;
+    padding: 3vw 0;
+    width: 100%;
+  }
+  .brand-card, .form-card {
+    max-width: 99vw;
+    width: 97%;
+    padding: 2rem 1.2rem 1.3rem 1.2rem;
+    border-radius: 13px;
+    box-shadow: 0 6px 22px rgba(21,101,192,0.13);
+  }
+  .logo-image {
+    max-width: 150px;
+    margin-bottom: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .brand-card, .form-card {
+    padding: 1.1rem 0.5rem;
+    border-radius: 8px;
+  }
+  .logo-image {
+    max-width: 110px;
+    margin-bottom: 1.0rem;
+  }
+  .register-heading { font-size: 1.25rem; }
+  input, select, button[type="submit"] {
+    font-size: 0.97rem;
+    padding: 0.67rem 0.65rem;
+  }
+  .ecommerce-text h3 { font-size: 1.16rem; }
+  .ecommerce-text p { font-size: 0.97rem; }
+}
+

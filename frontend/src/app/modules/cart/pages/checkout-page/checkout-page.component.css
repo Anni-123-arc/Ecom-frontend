@@ -1,0 +1,35 @@
+.checkout-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.page-title {
+  color: #2c3e50;
+  margin-bottom: 30px;
+  font-weight: 500;
+}
+
+.checkout-stepper {
+  background: transparent;
+}
+
+.step-content {
+  margin-top: 20px;
+}
+
+.step-actions {
+  margin-top: 30px;
+  display: flex;
+  gap: 15px;
+}
+
+mat-card {
+  margin-bottom: 20px;
+  padding: 20px;
+}
+
+mat-card h3 {
+  color: #2c3e50;
+  margin-top: 0;
+}

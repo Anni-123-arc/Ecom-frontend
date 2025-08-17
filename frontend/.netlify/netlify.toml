@@ -1,0 +1,33 @@
+headers = []
+redirects = []
+
+[functions]
+
+[functions."*"]
+
+[[plugins]]
+origin = "default"
+package = "@netlify/angular-runtime"
+
+[plugins.inputs]
+
+[build]
+publish = "E:\\PROD\\e-commerce-platform_ttp1dema2512_team-1b\\frontend\\dist\\Ecom-FrontEnd\\browser"
+publishOrigin = "inline"
+commandOrigin = "ui"
+base = "E:\\PROD\\e-commerce-platform_ttp1dema2512_team-1b\\frontend"
+command = "npm run build"
+
+[build.environment]
+
+[build.processing]
+
+[build.processing.css]
+
+[build.processing.html]
+
+[build.processing.images]
+
+[build.processing.js]
+
+[build.services]

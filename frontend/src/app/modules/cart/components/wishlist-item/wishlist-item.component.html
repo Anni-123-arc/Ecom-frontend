@@ -1,0 +1,23 @@
+<div class="wishlist-item-card">
+  <img [src]="'assets/images/' + item.image" [alt]="item.name" class="product-image">
+  
+  <div class="product-details">
+    <h3 class="product-name">{{item.name}}</h3>
+    <div class="price-section">
+      <span class="current-price">₹{{item.price}}</span>
+      @if (item.originalPrice) {
+        <span class="original-price">₹{{item.originalPrice}}</span>
+      }
+    </div>
+    <div class="delivery">Delivery by {{item.deliveryDate}}</div>
+  </div>
+
+  <div class="action-buttons">
+    <button class="move-to-cart" (click)="onMoveToCart()">
+      Move to Cart
+    </button>
+    <button class="remove" (click)="onRemove()">
+      Remove
+    </button>
+  </div>
+</div>

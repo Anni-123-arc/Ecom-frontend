@@ -1,0 +1,29 @@
+<app-home-header></app-home-header>
+<div class="tracking-card">
+  <div class="order-header">
+    <img [src]="order.imageUrl" alt="{{ order.productName }}" class="order-img">
+    <div class="order-details">
+      <h2>{{ order.productName }}</h2>
+      <p>Order ID: <strong>{{ order.id }}</strong></p>
+      <p>Sold by: {{ order.seller }}</p>
+      <p>Price: ₹{{ order.price | number:'1.2-2' }}</p>
+    </div>
+  </div>
+
+  <div class="timeline" [class.cancelled-or-returned]="order.status === 'Cancelled' || order.status === 'Returned'">
+    <div
+      class="timeline-step"
+      *ngFor="let step of orderSteps; let i = index"
+      [class.active]="i <= animatedStepIndex"
+    >
+      <div class="circle"></div>
+      <div class="step-content">
+        <h4>{{ step.status }}</h4>
+        <span>{{ step.date }}</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<app-footer></app-footer>

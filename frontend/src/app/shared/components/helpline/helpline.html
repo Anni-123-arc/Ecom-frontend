@@ -1,0 +1,84 @@
+<app-home-header></app-home-header>
+<section class="helpline-container">
+  <div class="helpline-header">
+    <h2>Need Help? We're Here for You!</h2>
+    <p>We’re happy to help with your orders, accounts, or technical issues.</p>
+  </div>
+
+  <div class="helpline-grid">
+    <!-- Phone -->
+    <div class="helpline-card">
+      <i class="fa fa-phone icon"></i>
+      <h3>Call Us</h3>
+      <p>Speak directly to our support team.</p>
+      <p><strong>+91 98765 43210</strong></p>
+      <small>Available 9 AM – 9 PM, Mon–Sat</small>
+    </div>
+
+    <!-- Email -->
+    <div class="helpline-card">
+      <i class="fa fa-envelope icon"></i>
+      <h3>Email Us</h3>
+      <p>Drop us a message for general queries.</p>
+      <p><strong>support&#64;yourshop.com</strong></p>
+      <small>Response within 24 hours</small>
+    </div>
+
+    <!-- Live Chat -->
+    <div class="helpline-card">
+      <i class="fa fa-comments icon"></i>
+      <h3>Live Chat</h3>
+      <p>Chat with an expert now.</p>
+      <button class="chat-button">Start Chat</button><br />
+      <small>Available 10 AM – 6 PM</small>
+    </div>
+  </div>
+
+  <!-- FAQs Section -->
+  <div class="faq-section">
+    <h3>Frequently Asked Questions</h3>
+
+    <!-- Category 1 -->
+    <div class="faq-category">
+      <button class="faq-toggle" (click)="toggleCategory('orders')">
+        Orders & Shipping
+        <i class="fa" [ngClass]="openCategory === 'orders' ? 'fa-chevron-up' : 'fa-chevron-down'"></i>
+      </button>
+      <div class="faq-dropdown" [class.active]="openCategory === 'orders'">
+        <ul>
+          <li><strong>How to track my order?</strong><br />Go to "My Orders" and click on "Track".</li>
+          <li><strong>How long does shipping take?</strong><br />Standard shipping takes 3–5 days.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Category 2 -->
+    <div class="faq-category">
+      <button class="faq-toggle" (click)="toggleCategory('account')">
+        Account & Security
+        <i class="fa" [ngClass]="openCategory === 'account' ? 'fa-chevron-up' : 'fa-chevron-down'"></i>
+      </button>
+      <div class="faq-dropdown" [class.active]="openCategory === 'account'">
+        <ul>
+          <li><strong>How do I reset my password?</strong><br />Click "Forgot Password" on login screen.</li>
+          <li><strong>Can I change my email?</strong><br />Yes, under account settings.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Category 3 -->
+    <div class="faq-category">
+      <button class="faq-toggle" (click)="toggleCategory('returns')">
+        Returns & Refunds
+        <i class="fa" [ngClass]="openCategory === 'returns' ? 'fa-chevron-up' : 'fa-chevron-down'"></i>
+      </button>
+      <div class="faq-dropdown" [class.active]="openCategory === 'returns'">
+        <ul>
+          <li><strong>What is the return window?</strong><br />Within 7 days of delivery.</li>
+          <li><strong>How do I request a refund?</strong><br />Use the "My Orders" section.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+<app-footer></app-footer>

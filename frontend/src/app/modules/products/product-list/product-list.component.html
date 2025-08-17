@@ -1,0 +1,40 @@
+<section id="home-wrapper" class="home-layout">
+
+  <app-home-header></app-home-header>
+
+  <app-search-filter
+  (searchChange)="onSearch($event)"
+  (filterChange)="onFilter($event)"
+  (sortChange)="onSort($event)"></app-search-filter>
+
+  <app-scrollable-menu-bar></app-scrollable-menu-bar>
+
+  <div class="page-wrap">
+
+      <app-side-bar class="sidebar"></app-side-bar>
+
+    <!-- Reserved space for other main content -->
+    <section class="content-area">
+      <!-- You can add content here later -->
+    </section>
+
+    <div class="product-grid">
+      <div class="product-card" *ngFor="let product of filteredProducts">
+        <img [src]="product.image" [alt]="product.name" />
+        <h3 class="product-name">{{ product.name }}</h3>
+        <p class="brand">Brand: {{ product.brand }}</p>
+        <p class="price">₹ {{ product.price }}</p>
+        <p class="rating">Rating: {{ product.rating }} ★</p>
+        <a [routerLink]="['/products', product.id]" class="view-btn">View Details</a>
+      </div>
+
+      <div *ngIf="!filteredProducts.length" class="empty">
+         No products match your filters.
+      </div>
+    </div>
+
+  </div>
+
+  <app-footer></app-footer>
+  
+</section>

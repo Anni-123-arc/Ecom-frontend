@@ -1,0 +1,51 @@
+<app-home-header></app-home-header>
+<div class="order-container">
+  <!-- Left Sidebar Filters -->
+  <div class="sidebar">
+    <h3>Status Filters</h3>
+    <ul>
+      <li *ngFor="let filter of filters"
+          (click)="setFilter(filter)"
+          [class.active]="selectedFilter === filter">
+        {{ filter }}
+      </li>
+    </ul>
+  </div>
+
+  <!-- Right Content Area -->
+  <div class="content">
+    <h3>Order Summary</h3>
+
+    <!-- Top Search and Year Dropdown -->
+    <div class="toolbar">
+      <input type="text"
+             [(ngModel)]="searchText"
+             placeholder="Search orders..."
+             class="search-bar" />
+
+      <select [(ngModel)]="selectedYear" class="year-dropdown">
+        <option *ngFor="let year of years" [value]="year">{{ year }}</option>
+      </select>
+    </div>
+
+    <!-- ✅ Scrollable Order Cards Container -->
+    <div class="orders-scrollable">
+      <div *ngFor="let order of filteredOrders" class="order-card">
+        <img [src]="order.imageUrl" alt="Product Image" class="product-image" />
+        <div class="order-info">
+          <h5>{{ order.productName }}</h5>
+          <p>Price: ₹{{ order.price }}</p>
+          <p>Status: <span class="status" [ngClass]="{
+          'status-delivered': order.status === 'Delivered',
+          'status-cancelled': order.status === 'Cancelled',
+          'status-shipped': order.status === 'Shipped',
+          'status-returned': order.status === 'Returned'
+        }">{{ order.status }}</span></p>
+          <p>Year: {{ order.year }}</p>
+        </div>
+        <button class="view-btn" (click)="viewOrder(order.id)">View Order</button>
+      </div>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

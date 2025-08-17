@@ -1,0 +1,18 @@
+<div class="saved-address-container">
+  <h3>Saved Addresses</h3>
+
+  <div class="address-list">
+    <div class="address-card" *ngFor="let address of addresses; let i = index">
+      <p><strong>{{ address.name }}</strong></p>
+      <p>{{ address.line1 }}</p>
+      <p>{{ address.line2 }}</p>
+      <p>{{ address.city }}, {{ address.state }} - {{ address.zip }}</p>
+      <div class="address-actions">
+        <button class="edit-btn" (click)="editAddress(i)">Edit</button>
+        <button class="delete-btn" (click)="deleteAddress(i)">Delete</button>
+      </div>
+    </div>
+</div>
+
+  <button class="add-address-btn" (click)="addAddress()">+ Add New Address</button>
+</div>

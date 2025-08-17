@@ -1,0 +1,156 @@
+/* Main Container */
+.admin-stats-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    padding: 15px;
+    width: 100%;
+}
+
+/* Stats Card Design */
+.stats-card {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-left: 4px solid;
+    position: relative;
+    overflow: hidden;
+}
+
+.stats-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+}
+
+/* Card Specific Colors */
+.sales-card {
+    border-left-color: #4e73df;
+}
+
+.users-card {
+    border-left-color: #1cc88a;
+}
+
+.orders-card {
+    border-left-color: #f6c23e;
+}
+
+/* Card Header */
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.card-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-icon img {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+}
+
+.sales-card .card-icon {
+    background-color: rgba(78, 115, 223, 0.1);
+}
+
+.users-card .card-icon {
+    background-color: rgba(28, 200, 138, 0.1);
+}
+
+.orders-card .card-icon {
+    background-color: rgba(246, 194, 62, 0.1);
+}
+
+.card-title {
+    flex-grow: 1;
+    padding-left: 15px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #5a5c69;
+}
+
+.card-trend {
+    font-size: 13px;
+    font-weight: 600;
+    padding: 4px 8px;
+    border-radius: 20px;
+}
+
+.positive-trend {
+    background-color: rgba(28, 200, 138, 0.1);
+    color: #1cc88a;
+}
+
+.negative-trend {
+    background-color: rgba(231, 74, 59, 0.1);
+    color: #e74a3b;
+}
+
+/* Card Value */
+.card-value {
+    font-size: 28px;
+    font-weight: 700;
+    margin: 10px 0;
+    color: #2e3a4d;
+}
+
+.sales-card .card-value {
+    color: #4e73df;
+}
+
+.users-card .card-value {
+    color: #1cc88a;
+}
+
+.orders-card .card-value {
+    color: #f6c23e;
+}
+
+/* Card Footer */
+.card-footer {
+    font-size: 13px;
+    color: #858796;
+    border-top: 1px solid #f8f9fc;
+    padding-top: 10px;
+    margin-top: 15px;
+}
+
+.period-comparison {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .admin-stats-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .card-value {
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 480px) {
+    .card-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    
+    .card-title {
+        padding-left: 0;
+    }
+}

@@ -1,0 +1,142 @@
+/* Base Styles */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: linear-gradient(135deg, #d0e7ff, #98c9ff);
+  background-color: #FFFFFF;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+/* Menu Button */
+.menu-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  margin-right: 1rem;
+}
+
+.menu-icon {
+  width: 24px;
+  height: 24px;
+  color: #212529;
+}
+
+/* Search Bar */
+.search-container {
+  display: flex;
+  flex-grow: 1;
+  max-width: 600px;
+  margin: 0 2rem;
+  
+}
+
+.search-input {
+  flex-grow: 1;
+  padding: 0.75rem 1rem;
+  border: 1px solid #DEE2E6;
+  border-radius: 4px 0 0 4px;
+  font-size: 1rem;
+  background-color: #F8F9FA;
+  
+}
+
+.search-btn {
+  background-color: #0D6EFD;
+  border: none;
+  border-radius: 0 4px 4px 0;
+  padding: 0 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.search-icon {
+  width: 20px;
+  height: 20px;
+  color: white;
+}
+
+/* Navigation Links */
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  color: #003366;
+  font-weight: 500;
+  font-size: 1rem;
+  padding: 0.5rem;
+  transition: color 0.2s;
+}
+
+.nav-icon {
+  width: 20px;
+  height: 20px;
+}
+
+.profile-link:hover {
+  color: #6610F2;
+}
+
+.wishlist-link:hover {
+  color: #0D6EFD;
+}
+
+.cart-link:hover {
+  color: #0D6EFD;
+}
+
+.logo-section {
+  flex: 0 0 auto;
+  margin: 0 1rem;
+}
+
+.logo {
+  height: 40px; /* Adjust based on your logo */
+  width: auto;
+}
+
+.help-link {
+  font-weight: 450;
+  text-transform: uppercase;
+}
+
+.help-link:hover {
+  color: #DC3545;
+}
+
+.logo {
+  transition: transform 0.2s;
+}
+
+.logo:hover {
+  transform: scale(1.05);
+}
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 1rem;
+    flex-wrap: wrap;
+  }
+  
+  .search-container {
+    order: 3;
+    width: 100%;
+    margin: 1rem 0 0 0;
+  }
+  
+  .nav-links {
+    margin-left: auto;
+  }
+}

@@ -1,0 +1,32 @@
+<section id="home-wrapper" class="home-layout">
+  <!-- Header -->
+  <app-home-header></app-home-header>
+
+  <!-- Scrollable Menu Bar -->
+  <app-scrollable-menu-bar></app-scrollable-menu-bar>
+
+  <!-- Carousel (moved slightly down) -->
+  <div class="carousel-wrapper"> <!-- Fixed: spacing added -->
+    <app-carousal></app-carousal>
+  </div>
+
+  <!-- Featured Products (moved out of sidebar layout for full width) -->
+  <div class="full-width-section">
+    <app-feature-product-list></app-feature-product-list>
+  </div>
+
+  <!-- Main Layout with Sidebar (use for filters etc.) -->
+  <div class="main-content">
+    <aside class="sidebar">
+      <app-side-bar></app-side-bar>
+    </aside>
+
+    <!-- Reserved space for other main content -->
+    <section class="content-area">
+      <!-- You can add content here later -->
+    </section>
+  </div>
+  
+  <!-- Footer -->
+  <app-footer></app-footer>
+</section>

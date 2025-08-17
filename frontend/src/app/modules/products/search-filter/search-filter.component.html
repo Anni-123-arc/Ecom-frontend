@@ -1,0 +1,38 @@
+<div class="search-bar">
+  <!-- Search Input -->
+  <input type="text" placeholder="Search by name or category..." [(ngModel)]="searchTerm" (input)="onSearch()"/>
+  <!-- Search Button -->
+  <button (click)="onSearch()">Search</button>
+ 
+  <!-- Category Filter -->
+  <select [(ngModel)]="selectedCategory" (change)="onFilterChange()">
+    <option value="">All Categories</option>
+    <option value="Mobiles">Mobiles</option>
+    <option value="Laptops & Computers">Laptops & Computers</option>
+    <option value="Audio Devices">Audio Devices</option>
+    <option value="Home Appliances">Home Appliances</option>
+    <option value="Televisions">Televisions</option>
+    <option value="Smart Devices">Smart Devices</option>
+  </select>
+
+  <!-- Price Filter Dropdown-->
+  <select [(ngModel)]="selectedPrice" (change)="onFilterChange()">
+    <option value="">All Prices</option>
+    <option value="0-1000">₹0 - ₹1000</option>
+    <option value="1001-5000">₹1001 - ₹5000</option>
+    <option value="5001-50000">₹5001 - ₹50000</option>
+    <option value="50001">₹50000+</option>
+  </select>
+
+  <!-- Sort Dropdown -->
+  <select [(ngModel)]="selectedSort" (change)="onSortChange()">
+    <option value="">Sort By</option>
+    <option value="name-asc">Name (A-Z)</option>
+    <option value="name-desc">Name (Z-A)</option>
+    <option value="price-asc">Price (Low → High)</option>
+    <option value="price-desc">Price (High → Low)</option>
+  </select>
+
+  <button class="reset-btn" (click)="resetFilters()">♻ Reset</button>
+
+</div>

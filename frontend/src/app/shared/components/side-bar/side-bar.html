@@ -1,0 +1,59 @@
+<!-- Backdrop Overlay -->
+<div
+  class="sidebar-backdrop"
+  *ngIf="isSidebarOpen"
+  (click)="closeSidebar()"
+></div>
+
+<!-- Sidebar Container -->
+<div class="sidebar" *ngIf="isSidebarOpen">
+  <h2 class="sidebar-title">All Categories</h2>
+
+  <div class="category" *ngFor="let category of categories" (click)="onCategorySelect(category.name)">
+    <div class="category-header" (click)="toggleCategory(category.name)">
+      <!-- Accordion icon -->
+      <svg
+        *ngIf="activeCategory === category.name"
+        xmlns="http://www.w3.org/2000/svg"
+        class="icon"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        (click)="onCategorySelect(category.name)"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M19 9l-7 7-7-7"
+        />
+      </svg>
+
+      <svg
+        *ngIf="activeCategory !== category.name"
+        xmlns="http://www.w3.org/2000/svg"
+        class="icon"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        (click)="onCategorySelect(category.name)"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M12 5v14m7-7H5"
+        />
+      </svg>
+
+      <span class="category-name">{{ category.name }}</span>
+    </div>
+
+    <!-- Subcategory List -->
+    <ul *ngIf="activeCategory === category.name" class="subcategory-list">
+      <li *ngFor="let sub of category.subcategories" class="subcategory-item">
+        {{ sub }}
+      </li>
+    </ul>
+  </div>
+</div>

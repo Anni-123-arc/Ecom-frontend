@@ -1,0 +1,19 @@
+<div id="carousel-container">
+  <div class="carousel-slides">
+    <img [src]="url" [alt]="alt" />
+  </div>
+
+  <!-- Navigation Arrows -->
+  <a class="prev" (click)="nextSlide(-1)">&#10094;</a>
+  <a class="next" (click)="nextSlide(1)">&#10095;</a>
+
+  <!-- Indicator Dots -->
+  <div id="indicator-group">
+    <span
+      class="indicator"
+      *ngFor="let image of images; let i = index"
+      [class.active]="i === currentId"
+      (click)="currentSlide(i)"
+    ></span>
+  </div>
+</div>

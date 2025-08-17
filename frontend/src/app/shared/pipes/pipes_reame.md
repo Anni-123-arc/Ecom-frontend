@@ -1,0 +1,1 @@
+added pipes folder inside frontend/src/app/shared

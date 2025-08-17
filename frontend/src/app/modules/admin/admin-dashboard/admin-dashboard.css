@@ -1,0 +1,113 @@
+
+/* Global Styles */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #f5f7fa;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  overflow-x: hidden;
+}
+
+/* Dashboard Layout */
+.admin-dashboard {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  min-height: 100vh;
+  transition: all 0.3s ease;
+  /* Remove the margin-top: 50px that was here */
+}
+
+/* Sidebar Styles */
+.dashboard-sidebar {
+    display: block;
+  /* background: linear-gradient(135deg, #1a2a6c 0%, #3a7bd5 100%); */
+  color: white;
+  box-shadow: 4px 0 15px rgba(0, 0, 0, 0.1);
+  z-index: 100;
+  position: relative;
+  
+}
+
+/* Main Content Area */
+.dashboard-content {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  background-color: #f5f7fa;
+}
+
+/* Stats Section */
+.stats-section {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  padding: 16px;
+}
+
+/* Data Visualization Section */
+.data-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  height: calc(100vh - 200px);
+}
+
+.orders-container, .messages-container {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  padding: 0px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 1200px) {
+  .data-section {
+    grid-template-columns: 1fr;
+    height: auto;
+  }
+  
+  .orders-container, .messages-container {
+    height: 400px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .admin-dashboard {
+    grid-template-columns: 1fr;
+  }
+  
+  .dashboard-sidebar {
+    position: fixed;
+    width: 100%;
+    height: 60px;
+    bottom: 0;
+    top: auto;
+    z-index: 1000;
+  }
+  
+  .dashboard-content {
+    padding-bottom: 80px;
+  }
+  
+  .data-section {
+    gap: 16px;
+  }
+}
+
+/* Modal Overlay Styles */
+app-add-form, app-update-form {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
