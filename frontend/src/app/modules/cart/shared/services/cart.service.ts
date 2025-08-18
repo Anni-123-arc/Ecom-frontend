@@ -1,11 +1,12 @@
 // cart.service.ts
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { Product, ProductService } from '../../../../core/services/product.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class CartService {
+export class CartService implements OnInit{
   private _cartItems = new BehaviorSubject<any[]>([]);
   private _wishlistItems = new BehaviorSubject<any[]>([
     {
@@ -25,6 +26,21 @@ export class CartService {
       deliveryDate: 'Wed, Jun 12'
     }
   ]);
+  cartItemss: Product[] = [];
+
+  constructor(private productService: ProductService) {
+  }
+
+  ngOnInit(): void {
+    this.addToCartItems()
+      
+  }
+
+  addToCartItems(){
+      this.cartItemss= this.productService.returnCartItems();
+      console.log("Cart Items: ", this.cartItemss);
+      return this.cartItemss
+  }
 
   // Expose as public observables
   cartItems$ = this._cartItems.asObservable();
@@ -46,8 +62,10 @@ export class CartService {
 
   // remove from cart
   removeFromCart(itemId: number) {
-  const updatedItems = this._cartItems.value.filter(item => item.id !== itemId);
-  this._cartItems.next(updatedItems);
+  const updatedItems = this.cartItemss.filter(item => item.id !== itemId);
+  this.cartItemss = updatedItems;
+  console.log("-----------><" , this.cartItemss)
+
   }
 
   // Move from wishlist to cart
@@ -76,8 +94,8 @@ export class CartService {
   
   // Calculate total
   getCartTotal() {
-    return this._cartItems.value.reduce((total, item) => 
-      total + (item.price * item.quantity), 0);
+    return this.cartItemss.reduce((total, item) => 
+      total + (item.price * 1), 0);
   }
 
   // In cart.service.ts

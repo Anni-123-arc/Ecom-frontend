@@ -29,7 +29,7 @@ export class OrderCartSummaryComponent {
   }
 
   proceedToCheckout() {
-    if (this.cartService.cartItems.length > 0) {
+    if (this.cartService.cartItemss.length > 0) {
       this.router.navigate(['/checkout']);
     } else {
       alert('Your cart is empty. Please add items to proceed to checkout.');

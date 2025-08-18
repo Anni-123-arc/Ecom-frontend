@@ -312,6 +312,19 @@ export class ProductService {
       ]
     }
   ];
+
+  itemsAddedToCart: Product[] = [];
+
+
+  addToCart(product: Product){
+    this.itemsAddedToCart.push(product);
+    console.log("Product added to cart:", this.itemsAddedToCart);
+    return this.itemsAddedToCart;
+  }
+
+  returnCartItems() {
+    return this.itemsAddedToCart;
+  }
   
   getProducts(): Observable<Product[]> {
     //return this.http.get<Product[]>(this.baseUrl);

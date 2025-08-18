@@ -1,10 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CartService } from '../../shared/services/cart.service';
 import { CommonModule } from '@angular/common';
 import { OrderCartSummaryComponent } from '../../components/order-summary/order-summary.component';
 import { NavbarComponent } from '../../shared/components/navbar/navbar.component';
 import { Footer } from '../../../../shared/components/footer/footer';
 import { Router } from '@angular/router';
+import { Product } from '../../../../core/services/product.service';
 
 @Component({
   selector: 'app-cart-page',
@@ -18,11 +19,24 @@ import { Router } from '@angular/router';
   templateUrl: './cart-page.component.html',
   styleUrls: ['./cart-page.component.css']
 })
-export class CartPageComponent {
+export class CartPageComponent implements OnInit {
+  cart :Product[] = [];
   constructor(
     public cartService: CartService,
     private router: Router
-  ) {}
+  ) {
+    console.log("----------<>",cartService.addToCartItems())
+  }
+
+  ngOnInit(): void {
+      this.getItems();
+  }
+
+  getItems(){
+    this.cart = this.cartService.addToCartItems();
+   
+    console.log("------<" , this.cart)
+  }
 
   handleRemove(itemId: number) {
     this.cartService.removeFromCart(itemId);

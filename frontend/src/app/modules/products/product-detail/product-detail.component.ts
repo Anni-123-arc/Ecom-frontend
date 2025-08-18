@@ -6,6 +6,7 @@ import { ReviewComponent } from '../review/review.component';
 //import { HttpClientModule } from '@angular/common/http';
 import { HomeHeader } from '../../../shared/components/home-header/home-header';
 import { Footer } from '../../../shared/components/footer/footer';
+import { AddToCartService } from '../../../core/services/add-to-cart-service';
 
 @Component({
   selector: 'app-product-detail',
@@ -39,7 +40,8 @@ export class ProductDetailComponent implements OnInit {
   addToCart() {
     if (this.product) {
       // Here you could store the product in a CartService or localStorage
-      console.log('Buying now:', this.product);
+      // console.log('Buying now:', this.product);
+      this.productService.addToCart(this.product); // Call the service to add to cart 
       this.router.navigate(['/cart']); // Navigate to cart page
     }
   }
