@@ -18,7 +18,7 @@ export class OrderCartSummaryComponent {
   ) {}
 
   getTotalItems() {
-    return this.cartService.cartItems.reduce((total, item) => 
+    return this.cartService.cartItemss.reduce((total, item) => 
       total + item.quantity, 0);
   }
 

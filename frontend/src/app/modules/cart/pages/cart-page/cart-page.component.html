@@ -24,7 +24,7 @@
                 
                 <div class="quantity-controls">
                   <button class="quantity-btn" (click)="handleQuantityUpdate({id: item.id, change: -1})">−</button>
-                  <span class="quantity"></span>
+                  <span class="quantity">{{item.quantity}}</span>
                   <button class="quantity-btn" (click)="handleQuantityUpdate({id: item.id, change: 1})">+</button>
                   <span class="divider">|</span>
                   <button class="action-link" (click)="handleRemove(item.id)">Remove</button>

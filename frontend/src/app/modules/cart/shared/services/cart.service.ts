@@ -95,12 +95,12 @@ export class CartService implements OnInit{
   // Calculate total
   getCartTotal() {
     return this.cartItemss.reduce((total, item) => 
-      total + (item.price * 1), 0);
+      total + (item.price * item.quantity), 0);
   }
 
   // In cart.service.ts
 updateQuantity(itemId: number, change: number) {
-  const items = this._cartItems.value;
+  const items = this.cartItemss;
   const itemIndex = items.findIndex(item => item.id === itemId);
   
   if (itemIndex > -1) {
@@ -113,7 +113,8 @@ updateQuantity(itemId: number, change: number) {
       items.splice(itemIndex, 1);
     }
     
-    this._cartItems.next([...items]);
+    this.cartItemss = items
+    console.log("Updated Cart Items: ", this.cartItemss);
   }
 }
 }
