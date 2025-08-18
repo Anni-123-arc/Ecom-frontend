@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class UserService {
-  private baseUrl = 'http://localhost:3000/api';
+  private baseUrl = 'https://ecom-backend-ak0w.onrender.com/api';
 
   constructor(private http: HttpClient) {}
 
