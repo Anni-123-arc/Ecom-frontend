@@ -4,6 +4,7 @@ import {type Item} from  '../../modules/admin/admin-dashboard/admin-type.model'
 import {type UPRO} from '../../modules/admin/admin-dashboard/admin-type.model'
 import {type Inventory} from '../../modules/admin/admin-dashboard/admin-type.model'
 import axios from 'axios';
+import { OnInit } from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
@@ -37,12 +38,15 @@ export class InventoryService {
    }
 
 
+
+
    //Method to retrive order details
    test(){
     axios.get('https://ecom-backend-ak0w.onrender.com/api/get-products').then((response)=>{
           const items = response.data.data;
           console.log("Items fetched from backend:", items);
           for(let item of items) {
+           
           this.inventory.push({
             product_id: item.Product_ID ,
             product_name: item.Product_Name,
@@ -51,6 +55,7 @@ export class InventoryService {
             Quantity: item.Quantity
           });
         }
+      
           
         })
    }
@@ -59,6 +64,7 @@ export class InventoryService {
   addItems(product: any) {
 
     axios.post('https://ecom-backend-ak0w.onrender.com/api/Uploadproducts', product)
+
 
 
   }
@@ -76,6 +82,8 @@ export class InventoryService {
   dltItem(product_id: string) {
  
     axios.post(`https://ecom-backend-ak0w.onrender.com/api/delete-product/${product_id}`)
+    this.inventory = []
+    this.test() // Refresh the inventory after deletion
   
     return this.inventory
   }

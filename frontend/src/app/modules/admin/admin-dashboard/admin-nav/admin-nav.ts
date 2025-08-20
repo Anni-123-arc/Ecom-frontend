@@ -26,6 +26,11 @@ export class AdminNav {
     // Save before reload
     localStorage.setItem('lastSyncTime', now);
     window.location.reload();
+    // setTimeout(() => {
+    //   this.isSyncing = false;
+    //   // Simulate a sync operation
+    //   console.log('Data synced at', now);
+    // }, 2000); // Simulate a 2-second sync delay
 
   }
 
