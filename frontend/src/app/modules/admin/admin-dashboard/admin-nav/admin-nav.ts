@@ -19,13 +19,14 @@ export class AdminNav {
   }
 
   syncData() {
-    window.location.reload();
     this.isSyncing = true;
     const now = new Date().toLocaleTimeString();
     this.lastSyncTime = now;
 
     // Save before reload
     localStorage.setItem('lastSyncTime', now);
+    window.location.reload();
+
   }
 
   logout() {
